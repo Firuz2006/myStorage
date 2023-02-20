@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 using Cafe.Class;
 
@@ -70,7 +69,7 @@ namespace Cafe
             {
                 _invoiceContext.UpdateData(int.Parse(id.Text),idFirm,idProduct,idStorage,quantity,USD,TJS,salePrice,_isPayed.Checked);
             }
-            _refresh();
+            _refresh(); 
         }
 
         private void _btnDelete_Click(object sender, EventArgs e)

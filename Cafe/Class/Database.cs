@@ -35,6 +35,7 @@ namespace Cafe.Class
 
         protected void LoadData(DataGridView dg, string table, string query = "")
         {
+            closeConnection();
             string queryString = "SELECT * FROM " + table + ";";
             if (!string.IsNullOrEmpty(query))
             {
@@ -78,6 +79,7 @@ namespace Cafe.Class
 
         protected MySqlDataReader GetData(string query)
         {
+            closeConnection();
             MySqlDataReader reader = null;
             try
             {

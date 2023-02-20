@@ -36,19 +36,20 @@ namespace Cafe.Class
         }
         public void InsertData(int idFirm,int idProduct, int idStorage,int quantity,decimal usd,decimal tjs,decimal sale,bool isPayed)
         {
+            var date = DateTime.Now.ToString("yyyy-MM-dd");
+            Console.WriteLine(date);
             string query =
                 "Insert into Invoice(idFirm, idProduct, idStorage, quantity, priceusd, pricetjs, date, sellingPrice, isPayed)" +
-                $" values ({idFirm}, '{idProduct}', {idStorage},{quantity},{usd},{tjs},'{DateTime.Now.ToString("G")}',{sale},{(isPayed ? 1 : 0)})";
+                $" values ({idFirm}, {idProduct}, {idStorage},{quantity},{usd},{tjs},'{date}',{sale},{(isPayed ? 1 : 0)})";
             Execute(query);
         }
 
         public void UpdateData(int idInvoice, int idFirm,int idProduct, int idStorage,int quantity,decimal usd,decimal tjs,decimal sale,bool isPayed)
         {
+            var date = DateTime.Now.ToString("yyyy-MM-dd");
             string query =
-                "update from Invoice(idFirm, idProduct, idStorage, quantity, priceusd, pricetjs, date, sellingPrice, isPayed)" +
-                $" values ({idFirm}, '{idProduct}', {idStorage},{quantity},{usd},{tjs},'{DateTime.Now.ToString("G")}',{sale},{(isPayed ? 1 : 0)})";
+                $"update Invoice set idFirm={idFirm}, idProduct={idProduct}, idStorage={idStorage}, quantity={quantity}, priceusd='{usd}', pricetjs='{tjs}', date='{date}', sellingPrice='{sale}', isPayed={(isPayed ? 1 : 0)}) where idInvoice={idInvoice}";
             Execute(query);
         }
-
     }
 }
