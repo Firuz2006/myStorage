@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using Cafe.Class;
 
@@ -79,6 +81,20 @@ namespace Cafe
             }
             _invoiceContext.DeleteData(int.Parse(id.Text));
             _refresh();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = dataGridView1.Rows[e.RowIndex];
+            _txtQuantity.Text = row.Cells[2].Value.ToString();
+            _txtSale.Text = row.Cells[6].Value.ToString();
+            _txtTJS.Text = row.Cells[4].Value.ToString();
+            _txtUSD.Text = row.Cells[3].Value.ToString();
+            _cbProduct.SelectedItem=_cbProduct.Items.Cast<Item>().Single(p=>p.Key==int.Parse(row.Cells[1].Value.ToString()));
+            _cbFirm.SelectedItem = _cbFirm.Items.Cast<Item>().Single(p=>p.Key==int.Parse(row.Cells[7].Value.ToString()));
+            _cbStorage.SelectedItem = _cbStorage.Items.Cast<Item>().Single(p=>p.Key==int.Parse(row.Cells[8].Value.ToString()));
+            _isPayed.Checked = row.Cells[9].Value.ToString()=="1";
+            id.Text = row.Cells[0].Value.ToString();;
         }
     }
 }
