@@ -121,6 +121,7 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\Category.cs" />
+    <Compile Include="Class\Client.cs" />
     <Compile Include="Class\Firm.cs" />
     <Compile Include="Class\Database.cs" />
     <Compile Include="Class\Function.cs" />
@@ -141,29 +142,23 @@
     <Compile Include="frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClient.Designer.cs">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCompany.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCompany.Designer.cs">
       <DependentUpon>frmCompany.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAdmin.Designer.cs">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmInvoice.Designer.cs">
       <DependentUpon>frmInvoice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProduct.cs">
       <SubType>Form</SubType>
@@ -215,17 +210,14 @@
     <EmbeddedResource Include="frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmClient.resx">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCompany.resx">
       <DependentUpon>frmCompany.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdmin.resx">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmInvoice.resx">
       <DependentUpon>frmInvoice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>

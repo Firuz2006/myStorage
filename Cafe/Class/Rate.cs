@@ -15,38 +15,40 @@ namespace Cafe.Class
 
         public void LoadData(DataGridView dg)
         {
-            LoadData(dg, "category");
+            LoadData(dg, "rate");
             dg.Columns[0].HeaderText = "№";
-            dg.Columns[1].HeaderText = "Категория";
-
+            dg.Columns[1].HeaderText = "TJS";
+            dg.Columns[2].HeaderText = "USD";
+            dg.Columns[3].HeaderText = "Date";
+            
         }
 
-        public void DeleteData(int id)
-        {
-            Execute("Delete from category where idCategory = " + id.ToString() + ";");
-        }
+        // public void DeleteData(int id)
+        // {
+            // Execute("Delete from rate where idRate = " + id + ";");
+        // }
 
-        public void InsertData(string category)
+        public void InsertData(decimal usd,decimal tjs)
         {
-                string query = $"Insert into category(category) values('{category}')";
+                string query = $"Insert into rate(tjs,usd,date) values('{tjs}','{usd}','{DateTime.Now.ToString("yyyy-MM-dd")}')";
                                //  MessageBox.Show(query);
                 Execute(query);
         }
 
-        public void UpdateData(int id, string category)
-        {
-            try
-            {
-                string query = $"Update category set category = '{category}' where idCategory = {id};";
-              //  MessageBox.Show(query);
-                Execute(query);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Error updateCategory: " + exception.ToString());
-            }
-            
-        }
+        // public void UpdateData(int id, string category)
+        // {
+        //     try
+        //     {
+        //         string query = $"Update category set category = '{category}' where idCategory = {id};";
+        //       //  MessageBox.Show(query);
+        //         Execute(query);
+        //     }
+        //     catch (Exception exception)
+        //     {
+        //         MessageBox.Show("Error updateCategory: " + exception.ToString());
+        //     }
+        //     
+        // }
 
         /*public void UpdateData(int id, string category, string imagePath , bool status)
         {
@@ -60,24 +62,24 @@ namespace Cafe.Class
             }
         }*/
 
-        public List<Item> GetCategory()
-        {
-            List<Item> list = new List<Item>();
-            try
-            {
-                string query = "Select idCategory, category from category ORDER BY category;";
-                MySqlDataReader reader = GetData(query);
-                while (reader.Read())
-                {
-                    list.Add(new Item(reader.GetInt16(0), reader.GetString(1)));
-                }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show("Error: " + exception);
-            }
-            
-            return list;
-        }
+        // public List<Item> GetRate()
+        // {
+        //     List<Item> list = new List<Item>();
+        //     try
+        //     {
+        //         string query = "Select idCategory, category from category ORDER BY category;";
+        //         MySqlDataReader reader = GetData(query);
+        //         while (reader.Read())
+        //         {
+        //             list.Add(new Item(reader.GetInt16(0), reader.GetString(1)));
+        //         }
+        //     }
+        //     catch (Exception exception)
+        //     {
+        //         MessageBox.Show("Error: " + exception);
+        //     }
+        //     
+        //     return list;
+        // }
     }
 }

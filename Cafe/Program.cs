@@ -10,7 +10,7 @@ namespace Cafe
         {   
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmInvoice());
+            Application.Run(new frmSale());
          //   Application.Run(new numberpad());
 
         }

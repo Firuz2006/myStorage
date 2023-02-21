@@ -94,10 +94,8 @@ C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.csproj
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.csproj.SuggestedBindingRedirects.cache
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.About.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmCompany.resources
-C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmAdmin.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmCategory.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmInvoice.resources
-C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmLogin.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmProduct.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmSale.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmUnit.resources
@@ -129,3 +127,4 @@ C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\bin\Debug\System.Buff
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\bin\Debug\System.Memory.xml
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmClient.resources
