@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace Cafe
 {
@@ -13,10 +12,13 @@ namespace Cafe
             _refresh();
         }
 
-        private void _refresh()
+        protected sealed override void _refresh()
         {
             _rate.LoadData(dataGridView1);
         }
+
+        protected override void _clear(){}
+
         private void _btnAdd_Click(object sender, EventArgs e)
         {
             _rate.InsertData(decimal.Parse(_txtUSD.Text),decimal.Parse(_txtTJS.Text));

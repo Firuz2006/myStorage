@@ -36,8 +36,6 @@ namespace Cafe
             this.save = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.TextBox();
-            this.id = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.categoryDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -93,21 +91,6 @@ namespace Cafe
             this.name.Size = new System.Drawing.Size(339, 22);
             this.name.TabIndex = 4;
             // 
-            // id
-            // 
-            this.id.Location = new System.Drawing.Point(27, 157);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(339, 22);
-            this.id.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(27, 132);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(338, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "№";
-            // 
             // label2
             // 
             this.label2.Location = new System.Drawing.Point(27, 191);
@@ -122,8 +105,6 @@ namespace Cafe
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.id);
             this.Controls.Add(this.name);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.save);
@@ -136,8 +117,6 @@ namespace Cafe
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.TextBox id;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
 
         private System.Windows.Forms.DataGridView categoryDataGrid;

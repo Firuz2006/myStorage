@@ -1,73 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using Cafe.Class;
 namespace Cafe
 {
     public partial class frmProduct : Form
     {
-        public bool newData;
-        string fileName;
-        public bool newImage;
-        Product product;
-        Category category;
-        Unit unit;
+        private readonly Product _productContext;
+        private readonly Category _categoryContext;
+        private readonly Unit _unitContext;
         public frmProduct()
         {
-            product = new Product();
-            category = new Category();
-            unit = new Unit();
+            _productContext = new Product();
+            _categoryContext=new Category();
+            _unitContext=new Unit();
             InitializeComponent();
+            _refresh();
         }
 
         private void clearData()
         {
-            txtId.Clear();
             txtProduct.Clear();
-            fileName = "";
             openImage.FileName = "";
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            newData = true;
+            
             clearData();
         }
 
-        private void frmProduct_Load(object sender, EventArgs e)
-        {
-            newData = true;
-            product = new Product();
-            product.LoadData(dgProduct);
-            GetCategory();
-            GetUnit();
-        }
-
-        private void GetCategory()
-        {
-            foreach (Item item in category.GetCategory())
-            {
-                cbCategory.Items.Add(item);
-                cbCategory.DisplayMember = "Value";
-            }
-        }
-
-        private void GetUnit()
-        {
-            foreach (Item item in unit.GetUnit())
-            {
-                cbUnit.Items.Add(item);
-                cbUnit.DisplayMember = "Value";
-            }
-        }
-        
         private void btnDelete_Click(object sender, EventArgs e)
         {
             DialogResult Message;
@@ -76,13 +37,9 @@ namespace Cafe
             {
                 return;
             }
-            else
-            {
-                int idProduct = Convert.ToInt32(txtId.Text);
-                product.DeleteData(idProduct);
-                product.LoadData(dgProduct);
-                clearData();
-            }
+            _productContext.DeleteData(_id);
+            _productContext.LoadData(dgProduct);
+            clearData();
         }
 
         private void bntSave_Click(object sender, EventArgs e)
@@ -90,28 +47,27 @@ namespace Cafe
             
             DialogResult Message;
             string SaveData = "";
-            bool status;
             Item categoryItem = (Item)cbCategory.SelectedItem;
             Item unitItem = (Item)cbUnit.SelectedItem;
             
 
-            if (newData)
+            if (_id==0)
             {
                 Message = MessageBox.Show("Хотите добавить в базу?", "Informations", MessageBoxButtons.YesNo);
                 if (Message == DialogResult.No)
                 {
                     return;
                 }
-                product.InsertData(txtProduct.Text,categoryItem.Key,unitItem.Key);
+                _productContext.InsertData(txtProduct.Text,categoryItem.Key,unitItem.Key);
                     // unitItem.Key, status, txtBarcode.Text);
             }
             else
             {
-                product.UpdateData(int.Parse(txtId.Text),txtProduct.Text,categoryItem.Key,unitItem.Key);
+                _productContext.UpdateData(_id,txtProduct.Text,categoryItem.Key,unitItem.Key);
             }
 
 
-            product.LoadData(dgProduct);
+            
         }
 
         private void dgProduct_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -119,13 +75,12 @@ namespace Cafe
             try
             {
                 DataGridViewRow rows = dgProduct.Rows[e.RowIndex];
-                txtId.Text = rows.Cells[0].Value.ToString();
+                _id = int.Parse(rows.Cells[0].Value.ToString());
                 txtProduct.Text = rows.Cells[1].Value.ToString();
                 cbCategory.Text = rows.Cells[2].Value.ToString();
                 cbUnit.Text = rows.Cells[3].Value.ToString();
 
-                // new data is false if textbox not null
-                newData = false;
+                // new data is false if textBox not null
             }
             catch (Exception exception)
             {
@@ -133,9 +88,21 @@ namespace Cafe
             }
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
 
+        protected override void _refresh()
+        {
+            _productContext.LoadData(dgProduct);
+            
+            cbCategory.Items.Clear();
+            cbCategory.Items.AddRange(_categoryContext.GetCategory().ToArray());
+            
+            cbUnit.Items.Clear();
+            cbUnit.Items.AddRange(_unitContext.GetUnit().ToArray());
+        }
+
+        protected override void _clear()
+        {
+            txtProduct.Clear();
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtId = new System.Windows.Forms.TextBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.dgCompany = new System.Windows.Forms.DataGridView();
             this.txtCompany = new System.Windows.Forms.TextBox();
@@ -44,14 +43,6 @@
             this.info = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgCompany)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(157, 81);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(145, 22);
-            this.txtId.TabIndex = 19;
             // 
             // splitter1
             // 
@@ -180,7 +171,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.phone);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.bntSave);
             this.Controls.Add(this.btnNew);
@@ -191,7 +181,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCompany";
             this.Text = "company";
-            this.Load += new System.EventHandler(this.frmCompany_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgCompany)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -208,7 +197,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.DataGridView dgCompany;
         private System.Windows.Forms.TextBox txtCompany;

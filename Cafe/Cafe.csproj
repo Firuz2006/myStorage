@@ -114,12 +114,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="About.Designer.cs">
-      <DependentUpon>About.cs</DependentUpon>
-    </Compile>
     <Compile Include="Class\Category.cs" />
     <Compile Include="Class\Client.cs" />
     <Compile Include="Class\Firm.cs" />
@@ -136,6 +130,13 @@
     <Compile Include="Class\TableCategory.cs" />
     <Compile Include="Class\Unit.cs" />
     <Compile Include="Class\User.cs" />
+    <Compile Include="Form.cs" />
+    <Compile Include="frmCashInBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCashInBox.Designer.cs">
+      <DependentUpon>frmCashInBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +160,12 @@
     </Compile>
     <Compile Include="frmInvoice.Designer.cs">
       <DependentUpon>frmInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProduct.cs">
       <SubType>Form</SubType>
@@ -184,12 +191,6 @@
     <Compile Include="frmUnit.Designer.cs">
       <DependentUpon>frmUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUser.Designer.cs">
-      <DependentUpon>frmUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="numberpad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,8 +205,8 @@
     <Compile Include="Rate.Designer.cs">
       <DependentUpon>Rate.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="About.resx">
-      <DependentUpon>About.cs</DependentUpon>
+    <EmbeddedResource Include="frmCashInBox.resx">
+      <DependentUpon>frmCashInBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
@@ -218,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInvoice.resx">
       <DependentUpon>frmInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>

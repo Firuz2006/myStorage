@@ -7,7 +7,6 @@ namespace Cafe
 {
     public partial class frmInvoice : Form
     {
-        private bool _isNew=true;
         private readonly Product _productContext;
         private readonly Firm _firmContext;
         private readonly Invoice _invoiceContext;
@@ -23,7 +22,7 @@ namespace Cafe
             _refresh();
         }
 
-        private void _refresh()
+        protected override void _refresh()
         {
             _cbFirm.Items.Clear();
             _cbFirm.Items.AddRange(_firmContext.GetFirm().ToArray());
@@ -37,7 +36,7 @@ namespace Cafe
             _invoiceContext.LoadData(dataGridView1);
         }
 
-        private void _btnNew_Click(object sender, EventArgs e)
+        protected override void _clear()
         {
             _txtQuantity.Text = "";
             _txtSale.Text = "";
@@ -46,8 +45,12 @@ namespace Cafe
             _cbProduct.SelectedIndex = 0;
             _cbFirm.SelectedIndex = 0;
             _isPayed.Checked = false;
-            id.Text = "";
-            _refresh();
+            _id = 0;
+        }
+
+        private void _btnNew_Click(object sender, EventArgs e)
+        {
+            _clear();
         }
 
         private void _btnSave_Click(object sender, EventArgs e)
@@ -61,24 +64,25 @@ namespace Cafe
                 TJS = int.Parse(_txtTJS.Text),
                 salePrice = int.Parse(_txtSale.Text);
             
-            if (_isNew)
+            if (_id==0)
             {
                 _invoiceContext.InsertData(idFirm,idProduct,idStorage,quantity,USD,TJS,salePrice,_isPayed.Checked);
             }
             else
             {
-                _invoiceContext.UpdateData(int.Parse(id.Text),idFirm,idProduct,idStorage,quantity,USD,TJS,salePrice,_isPayed.Checked);
+                _invoiceContext.UpdateData(_id,idFirm,idProduct,idStorage,quantity,USD,TJS,salePrice,_isPayed.Checked);
             }
             _refresh(); 
+            _clear();
         }
 
         private void _btnDelete_Click(object sender, EventArgs e)
         {
-            if (_isNew)
-            {
+            if (_id==0)
                 return;
-            }
-            _invoiceContext.DeleteData(int.Parse(id.Text));
+            
+            _invoiceContext.DeleteData(_id);
+            _clear();
             _refresh();
         }
 
@@ -93,7 +97,7 @@ namespace Cafe
             _cbFirm.SelectedItem = _cbFirm.Items.Cast<Item>().Single(p=>p.Key==int.Parse(row.Cells[7].Value.ToString()));
             _cbStorage.SelectedItem = _cbStorage.Items.Cast<Item>().Single(p=>p.Key==int.Parse(row.Cells[8].Value.ToString()));
             _isPayed.Checked = row.Cells[9].Value.ToString()=="1";
-            id.Text = row.Cells[0].Value.ToString();;
+            _id = int.Parse(row.Cells[0].Value.ToString());
         }
     }
 }

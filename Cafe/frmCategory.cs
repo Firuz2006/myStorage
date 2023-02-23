@@ -6,32 +6,22 @@ namespace Cafe
 {
     public partial class frmCategory : Form
     {
-        private bool _isNew;
         private readonly Category _categoryContext;
         public frmCategory()
         {
             InitializeComponent();
             _categoryContext = new Category();
-            refresh();
+            _refresh();
         }
 
-        private void refresh()
-        {
-            _isNew = true;
-            _categoryContext.LoadData(categoryDataGrid);
-        }
         private void new_Click(object sender, EventArgs e)
         {
-            _isNew = true;
-            id.Visible = false;
-            label1.Visible = false;
-            id.Text = "";
-            name.Text = "";
+            _clear();
         }
 
         private void save_Click(object sender, EventArgs e)
         {
-            if (_isNew)
+            if (_id==0)
             {
                 _categoryContext.InsertData(name.Text);
             }
@@ -39,30 +29,40 @@ namespace Cafe
             {
                 if (!string.IsNullOrEmpty(name.Text))
                 {
-                    _categoryContext.UpdateData(int.Parse(id.Text), name.Text);
+                    _categoryContext.UpdateData(id:_id, name.Text);
                 }
             }
-            refresh();
+            _refresh();
+            _clear();
         }
 
         private void delete_Click(object sender, EventArgs e)
         {
-            if (_isNew)
+            if (_id==0)
             {
                 return;
             }
-            _categoryContext.DeleteData(int.Parse(id.Text));
-            _isNew = true;
-            refresh();
+            _categoryContext.DeleteData(_id);
+            _refresh();
+            _clear();
         }
         
         private void categoryDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _isNew = false;
             var row = categoryDataGrid.Rows[e.RowIndex];
-            id.Text = row.Cells[0].Value.ToString();
+            _id= int.Parse(row.Cells[0].Value.ToString());
             name.Text = row.Cells[1].Value.ToString();   
         }
-        
+
+        protected override void _refresh()
+        {
+            _categoryContext.LoadData(categoryDataGrid);
+        }
+
+        protected override void _clear()
+        {
+            _id = 0;
+            name.Text = "";
+        }
     }
 }

@@ -32,7 +32,6 @@ namespace Cafe
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.TextBox();
             this._cbProduct = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,13 +62,6 @@ namespace Cafe
             this.dataGridView1.Size = new System.Drawing.Size(1644, 683);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // id
-            // 
-            this.id.Location = new System.Drawing.Point(217, 16);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(107, 22);
-            this.id.TabIndex = 1;
             // 
             // _cbProduct
             // 
@@ -241,7 +233,6 @@ namespace Cafe
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this._cbProduct);
-            this.Controls.Add(this.id);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmInvoice";
             this.Text = "frmInvoice";
@@ -274,8 +265,6 @@ namespace Cafe
 
         private System.Windows.Forms.ComboBox _cbProduct;
         private System.Windows.Forms.Label label1;
-
-        private System.Windows.Forms.TextBox id;
 
         private System.Windows.Forms.DataGridView dataGridView1;
 

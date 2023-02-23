@@ -1,33 +1,35 @@
 ﻿using System;
-using System.Windows.Forms;
 using Cafe.Class;
 
 namespace Cafe
 {
     public partial class frmClient : Form
     {
-        private int _id;
-
         private readonly Client _clientContext;
-            
+        
         public frmClient()
         {
             _clientContext = new Client();
             InitializeComponent();
         }
 
-        private void _refresh()
+        protected override void _refresh()
         {
             _clientContext.LoadData(dataGridView1);
         }
-        private void _btnNew_Click(object sender, EventArgs e)
+
+        protected override void _clear()
         {
             _txtAddr.Text = "";
             _txtName.Text = "";
             _txtPhone.Text = "";
             _txtLName.Text = "";
             _id = 0;
-            _refresh();
+        }
+
+        private void _btnNew_Click(object sender, EventArgs e)
+        {
+            _clear();
         }
 
         private void _btnSave_Click(object sender, EventArgs e)
@@ -41,6 +43,7 @@ namespace Cafe
                 _clientContext.UpdateData(_id,_txtName.Text,_txtLName.Text,_txtPhone.Text,_txtAddr.Text);
             }
             _refresh();
+            _clear();
         }
 
         private void _btnDelete_Click(object sender, EventArgs e)
@@ -50,7 +53,7 @@ namespace Cafe
                 return;
             }
             _clientContext.DeleteData(_id);
-            
+            _refresh();
         }
     }
 }

@@ -39,7 +39,6 @@ namespace Cafe
             this.name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.address = new System.Windows.Forms.TextBox();
-            this.id = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.storageDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,19 +115,11 @@ namespace Cafe
             this.address.Size = new System.Drawing.Size(258, 22);
             this.address.TabIndex = 7;
             // 
-            // id
-            // 
-            this.id.Location = new System.Drawing.Point(202, 65);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(100, 22);
-            this.id.TabIndex = 8;
-            // 
             // frmStorage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 514);
-            this.Controls.Add(this.id);
             this.Controls.Add(this.address);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.name);
@@ -143,8 +134,6 @@ namespace Cafe
             this.ResumeLayout(false);
             this.PerformLayout();
         }
-
-        private System.Windows.Forms.TextBox id;
 
         private System.Windows.Forms.Button @new;
         private System.Windows.Forms.Button save;

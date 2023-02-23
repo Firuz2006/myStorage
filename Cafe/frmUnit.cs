@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cafe.Class;
 
@@ -13,69 +6,63 @@ namespace Cafe
 {
     public partial class frmUnit : Form
     {
-        Unit unit;
-        bool newUnit;
+        private readonly Unit _unit;
         public frmUnit()
         {
-            unit = new Unit();
+            _unit = new Unit();
             InitializeComponent();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            newUnit = true;
-            clearData();
-        }
-
-        private void clearData()
-        {
-            txtId.Clear();
-            txtUnit.Text = "";
+            _clear();
         }
 
         private void bntSave_Click(object sender, EventArgs e)
         {
-            if (newUnit)
+            if (_id==0)
             {
-                unit.InsertData(txtUnit.Text);
+                _unit.InsertData(txtUnit.Text);
             }
             else
             {
-                unit.UpdateData(Convert.ToInt32(txtId.Text), txtUnit.Text);
+                _unit.UpdateData(_id, txtUnit.Text);
             }
 
-            unit.LoadData(dgUnit);
+            _unit.LoadData(dgUnit);
+            _refresh();
+            _clear();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult Message;
-            Message = MessageBox.Show("Вы точно хотите удалить?", "Warning", MessageBoxButtons.YesNo);
+            var Message = MessageBox.Show("Вы точно хотите удалить?", "Warning", MessageBoxButtons.YesNo);
             if (Message == DialogResult.No)
             {
                 return;
             }
-            else
-            {
-                int idUnit = Convert.ToInt32(txtId.Text);
-                unit.DeleteData(idUnit);
-                unit.LoadData(dgUnit);
-                clearData();
-            }
+            _unit.DeleteData(_id);
+            _clear();
+            _refresh();
         }
 
         private void dgUnit_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            newUnit = false;
             DataGridViewRow row = dgUnit.Rows[e.RowIndex];
-            txtId.Text = row.Cells[0].Value.ToString();
+            _id = int.Parse(row.Cells[0].Value.ToString());
             txtUnit.Text = row.Cells[1].Value.ToString();
         }
 
-        private void frmUnit_Load(object sender, EventArgs e)
+
+        protected override void _refresh()
         {
-            newUnit = true;
-            unit.LoadData(dgUnit);
+            _unit.LoadData(dgUnit);
+        }
+
+        protected override void _clear()
+        {
+            _id = 0;
+            txtUnit.Text = "";
         }
     }
 }

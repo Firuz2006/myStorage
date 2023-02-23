@@ -8,7 +8,6 @@ namespace Cafe
 {
     public partial class frmSale : Form
     {
-        private int _id=0;
         private readonly Firm _firmContext;
         private readonly Product _productContext;
         private readonly Storage _storageContext;
@@ -23,7 +22,8 @@ namespace Cafe
             InitializeComponent();
             _refresh();
         }
-        private void _refresh()
+
+        protected override void _refresh()
         {
             _cbFirm.Items.Clear();
             _cbFirm.Items.AddRange(_firmContext.GetFirm().ToArray());
@@ -36,13 +36,19 @@ namespace Cafe
             
             _saleContext.LoadData(dataGridView1);
         }
-        private void _btnNew_Click(object sender, EventArgs e)
+
+        protected override void _clear()
         {
             _txtQuantity.Text = "";
             _txtTJS.Text = "";
             _txtUSD.Text = "";
             _cbProduct.SelectedIndex = 0;
             _cbFirm.SelectedIndex = 0;
+        }
+
+        private void _btnNew_Click(object sender, EventArgs e)
+        {
+            _clear();
         }
 
         private void _btnSave_Click(object sender, EventArgs e)
@@ -62,12 +68,16 @@ namespace Cafe
             {
                 _saleContext.UpdateData(_id,idProduct,idStorage,quantity,USD,TJS,_isPayed.Checked);
             }
-            _refresh(); 
+            _refresh();
+            _clear();
         }
 
         private void _btnDelete_Click(object sender, EventArgs e)
         {
+            if (_id == 0) return;
             _saleContext.DeleteData(_id);
+            _refresh();
+            _clear();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.bntSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -52,12 +51,11 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.txtId);
             this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
             this.splitContainer1.Panel1.Controls.Add(this.bntSave);
             this.splitContainer1.Panel1.Controls.Add(this.btnNew);
@@ -67,7 +65,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.cbUnit);
             this.splitContainer1.Panel1.Controls.Add(this.cbCategory);
             this.splitContainer1.Panel1.Controls.Add(this.txtProduct);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -77,19 +74,10 @@
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(216, 15);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(69, 22);
-            this.txtId.TabIndex = 17;
-            this.txtId.Visible = false;
-            // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(36, 379);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(245, 38);
             this.btnDelete.TabIndex = 15;
@@ -100,7 +88,7 @@
             // bntSave
             // 
             this.bntSave.Location = new System.Drawing.Point(36, 333);
-            this.bntSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bntSave.Margin = new System.Windows.Forms.Padding(4);
             this.bntSave.Name = "bntSave";
             this.bntSave.Size = new System.Drawing.Size(245, 38);
             this.bntSave.TabIndex = 14;
@@ -111,7 +99,7 @@
             // btnNew
             // 
             this.btnNew.Location = new System.Drawing.Point(36, 288);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(4);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(245, 38);
             this.btnNew.TabIndex = 13;
@@ -153,7 +141,7 @@
             // 
             this.cbUnit.FormattingEnabled = true;
             this.cbUnit.Location = new System.Drawing.Point(36, 181);
-            this.cbUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbUnit.Margin = new System.Windows.Forms.Padding(4);
             this.cbUnit.Name = "cbUnit";
             this.cbUnit.Size = new System.Drawing.Size(245, 24);
             this.cbUnit.TabIndex = 6;
@@ -162,7 +150,7 @@
             // 
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(36, 107);
-            this.cbCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(245, 24);
             this.cbCategory.TabIndex = 5;
@@ -170,7 +158,7 @@
             // txtProduct
             // 
             this.txtProduct.Location = new System.Drawing.Point(40, 48);
-            this.txtProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtProduct.Margin = new System.Windows.Forms.Padding(4);
             this.txtProduct.Name = "txtProduct";
             this.txtProduct.Size = new System.Drawing.Size(245, 22);
             this.txtProduct.TabIndex = 1;
@@ -180,7 +168,7 @@
             this.dgProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgProduct.Location = new System.Drawing.Point(0, 0);
-            this.dgProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgProduct.Margin = new System.Windows.Forms.Padding(4);
             this.dgProduct.Name = "dgProduct";
             this.dgProduct.Size = new System.Drawing.Size(982, 853);
             this.dgProduct.TabIndex = 0;
@@ -196,11 +184,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1319, 853);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmProduct";
             this.Text = "frmProduct";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmProduct_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -224,6 +211,5 @@
         private System.Windows.Forms.Button bntSave;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.OpenFileDialog openImage;
-        private System.Windows.Forms.TextBox txtId;
     }
 }

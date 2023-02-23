@@ -92,7 +92,6 @@ C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\bin\Debug\BouncyCastl
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\bin\Debug\MySql.Data.xml
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.csproj.AssemblyReference.cache
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.csproj.SuggestedBindingRedirects.cache
-C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.About.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmCompany.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmCategory.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmInvoice.resources
@@ -128,3 +127,5 @@ C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\bin\Debug\System.Memo
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmClient.resources
+C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmCashInBox.resources
+C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.frmMain.resources

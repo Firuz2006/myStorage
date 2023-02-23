@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
@@ -7,7 +8,6 @@ namespace Cafe.Class
 {
     internal class Firm: Database
     {
-
         public List<Item> GetFirm()
         {
             List<Item> list = new List<Item>();
