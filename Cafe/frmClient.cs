@@ -3,14 +3,15 @@ using Cafe.Class;
 
 namespace Cafe
 {
-    public partial class frmClient : Form
+    public partial class FrmClient : Form
     {
         private readonly Client _clientContext;
         
-        public frmClient()
+        public FrmClient()
         {
             _clientContext = new Client();
             InitializeComponent();
+            _refresh();
         }
 
         protected override void _refresh()

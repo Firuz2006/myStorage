@@ -6,25 +6,34 @@ using Cafe.Class.Cafe.Class;
 
 namespace Cafe
 {
-    public partial class frmSale : Form
+    public partial class FrmSale : Form
     {
         private readonly Firm _firmContext;
         private readonly Product _productContext;
         private readonly Storage _storageContext;
         private readonly Sale _saleContext;
+        private readonly Class.Rate _rateContext;
 
-        public frmSale()
+        public FrmSale()
         {
             _productContext = new Product();
             _saleContext = new Sale();
             _firmContext = new Firm();
             _storageContext = new Storage();
+            _rateContext = new Class.Rate();
             InitializeComponent();
             _refresh();
+            
+            _txtTJS.KeyPress += TextBoxDoubleValidation;
+            _txtUSD.KeyPress += TextBoxDoubleValidation;
         }
 
         protected override void _refresh()
         {
+            var lastRate = _rateContext.GetLastRate();
+            _txtTJS.Text = lastRate.Key.ToString();
+            _txtUSD.Text = lastRate.Value.ToString();
+            
             _cbFirm.Items.Clear();
             _cbFirm.Items.AddRange(_firmContext.GetFirm().ToArray());
             
@@ -40,8 +49,6 @@ namespace Cafe
         protected override void _clear()
         {
             _txtQuantity.Text = "";
-            _txtTJS.Text = "";
-            _txtUSD.Text = "";
             _cbProduct.SelectedIndex = 0;
             _cbFirm.SelectedIndex = 0;
         }
@@ -57,16 +64,16 @@ namespace Cafe
                 quantity = int.Parse(_txtQuantity.Text),
                 idStorage = ((Item)_cbStorage.SelectedItem).Key;
 
-            decimal USD = int.Parse(_txtUSD.Text),
-                TJS = int.Parse(_txtTJS.Text);
+            decimal usd = decimal.Parse(_txtUSD.Text),
+                tjs = decimal.Parse(_txtTJS.Text);
             
             if (_id==0)
             {
-                _saleContext.InsertData(idProduct,idStorage,quantity,USD,TJS,_isPayed.Checked);
+                _saleContext.InsertData(idProduct,idStorage,quantity,usd,tjs,_isPayed.Checked);
             }
             else
             {
-                _saleContext.UpdateData(_id,idProduct,idStorage,quantity,USD,TJS,_isPayed.Checked);
+                _saleContext.UpdateData(_id,idProduct,idStorage,quantity,usd,tjs,_isPayed.Checked);
             }
             _refresh();
             _clear();
@@ -90,7 +97,8 @@ namespace Cafe
             _cbStorage.SelectedItem = _cbStorage.Items.Cast<Item>().Single(p=>p.Key==int.Parse(row.Cells[7].Value.ToString()));
             _isPayed.Checked = row.Cells[8].Value.ToString()=="1";
             _id = int.Parse(row.Cells[0].Value.ToString());
-            
         }
+
+       
     }
 }

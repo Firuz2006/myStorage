@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using System.Data;
 using System.Windows.Forms;
 
 namespace Cafe.Class
@@ -12,7 +7,18 @@ namespace Cafe.Class
     internal class Rate: Database
     {
 
+        public KeyValuePair<decimal,decimal> GetLastRate()
+        {
+            string query = "select tjs, usd from rate order by idRate desc limit 1";
+            var dataReader = GetData(query);
+            KeyValuePair<decimal,decimal> res=new KeyValuePair<decimal, decimal>();
+            if (dataReader.Read())
+            {
+                res = new KeyValuePair<decimal, decimal>(dataReader.GetDecimal(0),dataReader.GetDecimal(1));
+            }
+            return res;
 
+        }
         public void LoadData(DataGridView dg)
         {
             LoadData(dg, "rate");
@@ -23,11 +29,6 @@ namespace Cafe.Class
             
         }
 
-        // public void DeleteData(int id)
-        // {
-            // Execute("Delete from rate where idRate = " + id + ";");
-        // }
-
         public void InsertData(decimal usd,decimal tjs)
         {
                 string query = $"Insert into rate(tjs,usd,date) values('{tjs}','{usd}','{DateTime.Now.ToString("yyyy-MM-dd")}')";
@@ -35,51 +36,6 @@ namespace Cafe.Class
                 Execute(query);
         }
 
-        // public void UpdateData(int id, string category)
-        // {
-        //     try
-        //     {
-        //         string query = $"Update category set category = '{category}' where idCategory = {id};";
-        //       //  MessageBox.Show(query);
-        //         Execute(query);
-        //     }
-        //     catch (Exception exception)
-        //     {
-        //         MessageBox.Show("Error updateCategory: " + exception.ToString());
-        //     }
-        //     
-        // }
-
-        /*public void UpdateData(int id, string category, string imagePath , bool status)
-        {
-            if (System.IO.File.Exists(imagePath))
-            {
-                string filePath = Function.GenerateFileName();
-                System.IO.File.Copy(imagePath, PATH + "/" + filePath);
-                string query = "Update category set category = '" + category + "'," +
-                 " status = " + Convert.ToInt16(status) + ", image = '" + filePath + "' where idCategory = " + id.ToString() + ";";
-                Execute(query);
-            }
-        }*/
-
-        // public List<Item> GetRate()
-        // {
-        //     List<Item> list = new List<Item>();
-        //     try
-        //     {
-        //         string query = "Select idCategory, category from category ORDER BY category;";
-        //         MySqlDataReader reader = GetData(query);
-        //         while (reader.Read())
-        //         {
-        //             list.Add(new Item(reader.GetInt16(0), reader.GetString(1)));
-        //         }
-        //     }
-        //     catch (Exception exception)
-        //     {
-        //         MessageBox.Show("Error: " + exception);
-        //     }
-        //     
-        //     return list;
-        // }
+       
     }
 }

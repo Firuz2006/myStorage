@@ -5,25 +5,33 @@ using Cafe.Class;
 
 namespace Cafe
 {
-    public partial class frmInvoice : Form
+    public partial class FrmInvoice : Form
     {
         private readonly Product _productContext;
         private readonly Firm _firmContext;
+        private readonly Class.Rate _rateContext;
         private readonly Invoice _invoiceContext;
         private readonly Storage _storageContext;
         
-        public frmInvoice()
+        public FrmInvoice()
         {
+            _rateContext = new Class.Rate();
             _productContext = new Product();
             _invoiceContext = new Invoice();
             _firmContext = new Firm();
             _storageContext = new Storage();
             InitializeComponent();
             _refresh();
+            _txtUSD.KeyPress += TextBoxDoubleValidation;
+            _txtTJS.KeyPress += TextBoxDoubleValidation;
+            _txtSale.KeyPress += TextBoxDoubleValidation;
         }
 
-        protected override void _refresh()
+        protected sealed override void _refresh()
         {
+            var rate=_rateContext.GetLastRate();
+            _txtTJS.Text = rate.Key.ToString();
+            _txtUSD.Text = rate.Value.ToString();
             _cbFirm.Items.Clear();
             _cbFirm.Items.AddRange(_firmContext.GetFirm().ToArray());
             
@@ -38,12 +46,13 @@ namespace Cafe
 
         protected override void _clear()
         {
-            _txtQuantity.Text = "";
+            _txtQuantity.Value=0;
             _txtSale.Text = "";
             _txtTJS.Text = "";
             _txtUSD.Text = "";
-            _cbProduct.SelectedIndex = 0;
-            _cbFirm.SelectedIndex = 0;
+            _cbProduct.Text="";
+            _cbFirm.Text = "";
+            _cbStorage.Text = "";
             _isPayed.Checked = false;
             _id = 0;
         }
@@ -51,6 +60,7 @@ namespace Cafe
         private void _btnNew_Click(object sender, EventArgs e)
         {
             _clear();
+            _refresh();
         }
 
         private void _btnSave_Click(object sender, EventArgs e)
@@ -60,17 +70,17 @@ namespace Cafe
                 quantity = int.Parse(_txtQuantity.Text),
                 idStorage = ((Item)_cbStorage.SelectedItem).Key;
 
-            decimal USD = int.Parse(_txtUSD.Text),
-                TJS = int.Parse(_txtTJS.Text),
-                salePrice = int.Parse(_txtSale.Text);
+            decimal usd = decimal.Parse(_txtUSD.Text),
+                tjs = decimal.Parse(_txtTJS.Text),
+                salePrice = decimal.Parse(_txtSale.Text);
             
             if (_id==0)
             {
-                _invoiceContext.InsertData(idFirm,idProduct,idStorage,quantity,USD,TJS,salePrice,_isPayed.Checked);
+                _invoiceContext.InsertData(idFirm,idProduct,idStorage,quantity,usd,tjs,salePrice,_isPayed.Checked);
             }
             else
             {
-                _invoiceContext.UpdateData(_id,idFirm,idProduct,idStorage,quantity,USD,TJS,salePrice,_isPayed.Checked);
+                _invoiceContext.UpdateData(_id,idFirm,idProduct,idStorage,quantity,usd,tjs,salePrice,_isPayed.Checked);
             }
             _refresh(); 
             _clear();

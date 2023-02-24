@@ -4,10 +4,10 @@ using Cafe.Class;
 
 namespace Cafe
 {
-    public partial class frmStorage : Form
+    public partial class FrmStorage : Form
     {
         private readonly Storage _storageContext;
-        public frmStorage()
+        public FrmStorage()
         {
             InitializeComponent();
             _storageContext = new Storage();

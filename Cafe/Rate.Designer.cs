@@ -2,7 +2,7 @@
 
 namespace Cafe
 {
-    partial class Rate
+    public partial class Rate
     {
         /// <summary>
         /// Required designer variable.

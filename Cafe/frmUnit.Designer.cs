@@ -1,6 +1,6 @@
 ﻿namespace Cafe
 {
-    partial class frmUnit
+    partial class FrmUnit
     {
         /// <summary>
         /// Required designer variable.
@@ -134,7 +134,7 @@
             this.ClientSize = new System.Drawing.Size(1015, 610);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "frmUnit";
+            this.Name = "FrmUnit";
             this.Text = "frmUnit";
             ((System.ComponentModel.ISupportInitialize)(this.dgUnit)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);

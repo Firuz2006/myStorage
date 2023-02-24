@@ -1,6 +1,11 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=557C604C_002D8238_002D405B_002DBCE4_002DF4F3B6DE260E_002Ff_003AfrmProduct_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:Int64 x:Key="/Default/Dpa/Thresholds/=AllocationClosure/@EntryIndexedValue">2142240768</s:Int64>
+	<s:Int64 x:Key="/Default/Dpa/Thresholds/=AllocationLoh/@EntryIndexedValue">524288000</s:Int64>
+	<s:Int64 x:Key="/Default/Dpa/Thresholds/=AllocationTopSoh/@EntryIndexedValue">1048576000</s:Int64>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Cafe_002FAbout/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Cafe_002FfrmAdmin/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Cafe_002FfrmCashInBox/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Cafe_002FfrmCategory/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Cafe_002FfrmInvoice/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Cafe_002FfrmStorage/@EntryIndexedValue">True</s:Boolean>

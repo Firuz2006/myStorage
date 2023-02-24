@@ -2,7 +2,7 @@
 
 namespace Cafe
 {
-    partial class frmMain
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -43,6 +43,8 @@ namespace Cafe
             this._btnCashOut = new System.Windows.Forms.Button();
             this._btnCategory = new System.Windows.Forms.Button();
             this._btnInvoice = new System.Windows.Forms.Button();
+            this.Income = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _btnClient
@@ -164,11 +166,33 @@ namespace Cafe
             this._btnInvoice.UseVisualStyleBackColor = true;
             this._btnInvoice.Click += new System.EventHandler(this._btnInvoice_Click);
             // 
+            // Income
+            // 
+            this.Income.Location = new System.Drawing.Point(316, 10);
+            this.Income.Name = "Income";
+            this.Income.Size = new System.Drawing.Size(146, 47);
+            this.Income.TabIndex = 12;
+            this.Income.Text = "Доход";
+            this.Income.UseVisualStyleBackColor = true;
+            this.Income.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(327, 204);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 43);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Расход";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Income);
             this.Controls.Add(this._btnRate);
             this.Controls.Add(this.button7);
             this.Controls.Add(this._btnCashIn);
@@ -181,10 +205,14 @@ namespace Cafe
             this.Controls.Add(this._bntUnit);
             this.Controls.Add(this._btnStorage);
             this.Controls.Add(this._btnClient);
-            this.Name = "frmMain";
+            this.Name = "FrmMain";
             this.Text = "frmMain";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button button1;
+
+        private System.Windows.Forms.Button Income;
 
         private System.Windows.Forms.Button _btnClient;
         private System.Windows.Forms.Button _btnStorage;

@@ -1,6 +1,6 @@
 ﻿namespace Cafe
 {
-    partial class frmProduct
+    partial class FrmProduct
     {
         /// <summary>
         /// Required designer variable.
@@ -185,7 +185,7 @@
             this.ClientSize = new System.Drawing.Size(1319, 853);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmProduct";
+            this.Name = "FrmProduct";
             this.Text = "frmProduct";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);

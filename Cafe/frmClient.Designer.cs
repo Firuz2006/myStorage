@@ -2,7 +2,7 @@
 
 namespace Cafe
 {
-    partial class frmClient
+    partial class FrmClient
     {
         /// <summary>
         /// Required designer variable.
@@ -41,8 +41,8 @@ namespace Cafe
             this.label4 = new System.Windows.Forms.Label();
             this._txtName = new System.Windows.Forms.TextBox();
             this._txtAddr = new System.Windows.Forms.TextBox();
-            this._txtPhone = new System.Windows.Forms.TextBox();
             this._txtLName = new System.Windows.Forms.TextBox();
+            this._txtPhone = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,13 +134,6 @@ namespace Cafe
             this._txtAddr.Size = new System.Drawing.Size(250, 22);
             this._txtAddr.TabIndex = 11;
             // 
-            // _txtPhone
-            // 
-            this._txtPhone.Location = new System.Drawing.Point(12, 176);
-            this._txtPhone.Name = "_txtPhone";
-            this._txtPhone.Size = new System.Drawing.Size(250, 22);
-            this._txtPhone.TabIndex = 12;
-            // 
             // _txtLName
             // 
             this._txtLName.Location = new System.Drawing.Point(12, 112);
@@ -148,13 +141,21 @@ namespace Cafe
             this._txtLName.Size = new System.Drawing.Size(250, 22);
             this._txtLName.TabIndex = 13;
             // 
+            // _txtPhone
+            // 
+            this._txtPhone.Location = new System.Drawing.Point(12, 176);
+            this._txtPhone.Mask = "00-000-00-00";
+            this._txtPhone.Name = "_txtPhone";
+            this._txtPhone.Size = new System.Drawing.Size(250, 22);
+            this._txtPhone.TabIndex = 14;
+            // 
             // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 536);
-            this.Controls.Add(this._txtLName);
             this.Controls.Add(this._txtPhone);
+            this.Controls.Add(this._txtLName);
             this.Controls.Add(this._txtAddr);
             this.Controls.Add(this._txtName);
             this.Controls.Add(this.label4);
@@ -165,16 +166,17 @@ namespace Cafe
             this.Controls.Add(this._btnSave);
             this.Controls.Add(this._btnNew);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmClient";
+            this.Name = "FrmClient";
             this.Text = "frmClient";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.MaskedTextBox _txtPhone;
+
         private System.Windows.Forms.TextBox _txtName;
         private System.Windows.Forms.TextBox _txtAddr;
-        private System.Windows.Forms.TextBox _txtPhone;
         private System.Windows.Forms.TextBox _txtLName;
 
         private System.Windows.Forms.Label label4;

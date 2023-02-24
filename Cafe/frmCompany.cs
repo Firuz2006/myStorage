@@ -4,14 +4,14 @@ using Cafe.Class;
 
 namespace Cafe
 {
-    public partial class frmCompany : Form
+    public partial class FrmCompany : Form
     {
         private readonly Firm _firmContext;
-        public frmCompany()
+        public FrmCompany()
         {
             _firmContext = new Firm();
             InitializeComponent();
-            
+            _refresh();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -32,6 +32,7 @@ namespace Cafe
             }
 
             _firmContext.LoadData(dgCompany);
+            _refresh();_clear();
         }
         
         private void btnDelete_Click(object sender, EventArgs e)

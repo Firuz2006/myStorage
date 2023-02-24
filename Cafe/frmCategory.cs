@@ -4,10 +4,10 @@ using Cafe.Class;
 
 namespace Cafe
 {
-    public partial class frmCategory : Form
+    public partial class FrmCategory : Form
     {
         private readonly Category _categoryContext;
-        public frmCategory()
+        public FrmCategory()
         {
             InitializeComponent();
             _categoryContext = new Category();

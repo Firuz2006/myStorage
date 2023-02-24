@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Cafe.Class;
 namespace Cafe
 {
-    public partial class frmProduct : Form
+    public partial class FrmProduct : Form
     {
         private readonly Product _productContext;
         private readonly Category _categoryContext;
         private readonly Unit _unitContext;
-        public frmProduct()
+        public FrmProduct()
         {
             _productContext = new Product();
             _categoryContext=new Category();
@@ -17,79 +18,56 @@ namespace Cafe
             _refresh();
         }
 
-        private void clearData()
-        {
-            txtProduct.Clear();
-            openImage.FileName = "";
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            
-            clearData();
-        }
+        private void btnNew_Click(object sender, EventArgs e)=>_clear();
+        
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult Message;
-            Message = MessageBox.Show("Вы точно хотите удалить?", "Warning", MessageBoxButtons.YesNo);
-            if (Message == DialogResult.No)
-            {
-                return;
-            }
+            if(_id==0)return;
             _productContext.DeleteData(_id);
             _productContext.LoadData(dgProduct);
-            clearData();
+            _clear();
+            _refresh();
         }
 
         private void bntSave_Click(object sender, EventArgs e)
         {
+            var categoryItem = (Item)cbCategory.SelectedItem;
+            var unitItem = (Item)cbUnit.SelectedItem;
             
-            DialogResult Message;
-            string SaveData = "";
-            Item categoryItem = (Item)cbCategory.SelectedItem;
-            Item unitItem = (Item)cbUnit.SelectedItem;
-            
-
             if (_id==0)
-            {
-                Message = MessageBox.Show("Хотите добавить в базу?", "Informations", MessageBoxButtons.YesNo);
-                if (Message == DialogResult.No)
-                {
-                    return;
-                }
                 _productContext.InsertData(txtProduct.Text,categoryItem.Key,unitItem.Key);
-                    // unitItem.Key, status, txtBarcode.Text);
-            }
             else
-            {
                 _productContext.UpdateData(_id,txtProduct.Text,categoryItem.Key,unitItem.Key);
-            }
-
-
             
+            _refresh();
+            _clear();
         }
 
         private void dgProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                DataGridViewRow rows = dgProduct.Rows[e.RowIndex];
+                var rows = dgProduct.Rows[e.RowIndex];
                 _id = int.Parse(rows.Cells[0].Value.ToString());
-                txtProduct.Text = rows.Cells[1].Value.ToString();
-                cbCategory.Text = rows.Cells[2].Value.ToString();
-                cbUnit.Text = rows.Cells[3].Value.ToString();
 
-                // new data is false if textBox not null
+                var product = _productContext.GetProductById(_id);
+                int catId = int.Parse(product["idCategory"]),unitId=int.Parse(product["idUnit"]);
+                
+                txtProduct.Text = rows.Cells[1].Value.ToString();
+                cbCategory.SelectedItem = cbCategory.Items.Cast<Item>().First(p=>p.Key==catId);
+                
+                cbUnit.SelectedItem = cbUnit.Items.Cast<Item>().First(p=>p.Key==unitId);;
+
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Error:" + exception.Message.ToString());
+                MessageBox.Show(@"Error:" + exception.Message);
             }
         }
 
 
-        protected override void _refresh()
+        protected sealed override void _refresh()
         {
             _productContext.LoadData(dgProduct);
             
@@ -103,6 +81,9 @@ namespace Cafe
         protected override void _clear()
         {
             txtProduct.Clear();
+            cbCategory.Text="";
+            cbUnit.Text = "";
+            _id = 0;
         }
     }
 }

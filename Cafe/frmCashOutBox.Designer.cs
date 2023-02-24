@@ -2,7 +2,7 @@
 
 namespace Cafe
 {
-    partial class FrmCashInBox
+    partial class FrmCashOutBox
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@ namespace Cafe
             this._btnSave = new System.Windows.Forms.Button();
             this._btnNew = new System.Windows.Forms.Button();
             this._cbStorage = new System.Windows.Forms.ComboBox();
-            this._cbIncome = new System.Windows.Forms.ComboBox();
+            this._cbExpense = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -132,13 +132,13 @@ namespace Cafe
             this._cbStorage.Size = new System.Drawing.Size(218, 24);
             this._cbStorage.TabIndex = 10;
             // 
-            // _cbIncome
+            // _cbExpense
             // 
-            this._cbIncome.FormattingEnabled = true;
-            this._cbIncome.Location = new System.Drawing.Point(12, 292);
-            this._cbIncome.Name = "_cbIncome";
-            this._cbIncome.Size = new System.Drawing.Size(218, 24);
-            this._cbIncome.TabIndex = 11;
+            this._cbExpense.FormattingEnabled = true;
+            this._cbExpense.Location = new System.Drawing.Point(12, 292);
+            this._cbExpense.Name = "_cbExpense";
+            this._cbExpense.Size = new System.Drawing.Size(218, 24);
+            this._cbExpense.TabIndex = 11;
             // 
             // label4
             // 
@@ -146,15 +146,15 @@ namespace Cafe
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(218, 23);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Income";
+            this.label4.Text = "Expense";
             // 
-            // frmCashInBox
+            // FrmCashOutBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 564);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this._cbIncome);
+            this.Controls.Add(this._cbExpense);
             this.Controls.Add(this._cbStorage);
             this.Controls.Add(this._btnDelete);
             this.Controls.Add(this._btnSave);
@@ -165,7 +165,7 @@ namespace Cafe
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "FrmCashInBox";
+            this.Name = "FrmCashOutBox";
             this.Text = "frmCashInBox";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -174,7 +174,7 @@ namespace Cafe
 
         private System.Windows.Forms.Label label4;
 
-        private System.Windows.Forms.ComboBox _cbIncome;
+        private System.Windows.Forms.ComboBox _cbExpense;
 
         private System.Windows.Forms.ComboBox _cbStorage;
 

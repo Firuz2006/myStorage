@@ -2,7 +2,7 @@
 
 namespace Cafe
 {
-    partial class frmInvoice
+    partial class FrmInvoice
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,6 @@ namespace Cafe
             this._cbProduct = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this._txtQuantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this._txtUSD = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,7 +49,9 @@ namespace Cafe
             this._btnDelete = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this._cbStorage = new System.Windows.Forms.ComboBox();
+            this._txtQuantity = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._txtQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -86,13 +87,6 @@ namespace Cafe
             this.label2.Size = new System.Drawing.Size(292, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Количество";
-            // 
-            // _txtQuantity
-            // 
-            this._txtQuantity.Location = new System.Drawing.Point(32, 105);
-            this._txtQuantity.Name = "_txtQuantity";
-            this._txtQuantity.Size = new System.Drawing.Size(292, 22);
-            this._txtQuantity.TabIndex = 5;
             // 
             // label3
             // 
@@ -210,11 +204,20 @@ namespace Cafe
             this._cbStorage.Size = new System.Drawing.Size(292, 24);
             this._cbStorage.TabIndex = 19;
             // 
-            // frmInvoice
+            // _txtQuantity
+            // 
+            this._txtQuantity.Location = new System.Drawing.Point(32, 105);
+            this._txtQuantity.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
+            this._txtQuantity.Name = "_txtQuantity";
+            this._txtQuantity.Size = new System.Drawing.Size(292, 22);
+            this._txtQuantity.TabIndex = 20;
+            // 
+            // FrmInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 711);
+            this.Controls.Add(this._txtQuantity);
             this.Controls.Add(this._cbStorage);
             this.Controls.Add(this.label7);
             this.Controls.Add(this._btnDelete);
@@ -229,17 +232,19 @@ namespace Cafe
             this.Controls.Add(this.label4);
             this.Controls.Add(this._txtUSD);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this._txtQuantity);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this._cbProduct);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmInvoice";
+            this.Name = "FrmInvoice";
             this.Text = "frmInvoice";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._txtQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.NumericUpDown _txtQuantity;
 
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox _cbStorage;
@@ -260,7 +265,6 @@ namespace Cafe
         private System.Windows.Forms.TextBox _txtTJS;
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox _txtQuantity;
         private System.Windows.Forms.Label label3;
 
         private System.Windows.Forms.ComboBox _cbProduct;

@@ -32,7 +32,7 @@ namespace Cafe.Class
 
         public void DeleteData(int id)
         {
-            Execute("Delete from invoice where idInvoice = " + id.ToString() + ";");
+            Execute($"Delete from invoice where idInvoice = {id};");
         }
         public void InsertData(int idFirm,int idProduct, int idStorage,int quantity,decimal usd,decimal tjs,decimal sale,bool isPayed)
         {
@@ -48,7 +48,7 @@ namespace Cafe.Class
         {
             var date = DateTime.Now.ToString("yyyy-MM-dd");
             string query =
-                $"update Invoice set idFirm={idFirm}, idProduct={idProduct}, idStorage={idStorage}, quantity={quantity}, priceusd='{usd}', pricetjs='{tjs}', date='{date}', sellingPrice='{sale}', isPayed={(isPayed ? 1 : 0)}) where idInvoice={idInvoice}";
+                $"update Invoice set idFirm={idFirm}, idProduct={idProduct}, idStorage={idStorage}, quantity={quantity}, priceusd='{usd}', pricetjs='{tjs}', date='{date}', sellingPrice='{sale}', isPayed={(isPayed ? 1 : 0)} where idInvoice={idInvoice}";
             Execute(query);
         }
     }

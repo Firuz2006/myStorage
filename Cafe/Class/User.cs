@@ -23,7 +23,7 @@ namespace Cafe.Class
 
             try
             {
-                connection.Open();
+                Connection.Open();
             }
             catch (MySqlException ex)
             {
@@ -40,7 +40,7 @@ namespace Cafe.Class
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand(cmdText, connection);
+                MySqlCommand cmd = new MySqlCommand(cmdText, Connection);
                 MySqlDataReader reader;
                 reader = cmd.ExecuteReader();
 
@@ -52,7 +52,7 @@ namespace Cafe.Class
                     this.fio = reader.GetString(3);
                     this.image = reader.GetString(4);
                     this.privilege = reader.GetString(5);
-                    connection.Close();
+                    Connection.Close();
                     return true;
 
                 }
@@ -63,7 +63,7 @@ namespace Cafe.Class
                 MessageBox.Show("Ошибка чтения данных:" + ex.ToString());
             }
 
-            connection.Close();
+            Connection.Close();
             return false;
         }
 
@@ -99,7 +99,7 @@ namespace Cafe.Class
             }
             else
             {
-                MessageBox.Show("Пользователь с таким логином уже существует :(");
+                MessageBox.Show(@"Пользователь с таким логином уже существует :(");
             }
         }
 

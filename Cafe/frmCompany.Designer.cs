@@ -1,6 +1,6 @@
 ﻿namespace Cafe
 {
-    partial class frmCompany
+    partial class FrmCompany
     {
         /// <summary>
         /// Required designer variable.
@@ -36,11 +36,11 @@
             this.bntSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.phone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.address = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.info = new System.Windows.Forms.TextBox();
+            this.phone = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgCompany)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,13 +123,6 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Телефон";
             // 
-            // phone
-            // 
-            this.phone.Location = new System.Drawing.Point(58, 282);
-            this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(244, 22);
-            this.phone.TabIndex = 21;
-            // 
             // label3
             // 
             this.label3.Location = new System.Drawing.Point(56, 321);
@@ -160,16 +153,24 @@
             this.info.Size = new System.Drawing.Size(246, 22);
             this.info.TabIndex = 25;
             // 
+            // phone
+            // 
+            this.phone.Location = new System.Drawing.Point(58, 282);
+            this.phone.Mask = "00-000-00-00";
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(244, 22);
+            this.phone.TabIndex = 26;
+            // 
             // frmCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1383, 622);
+            this.Controls.Add(this.phone);
             this.Controls.Add(this.info);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.address);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.phone);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.bntSave);
@@ -179,17 +180,18 @@
             this.Controls.Add(this.dgCompany);
             this.Controls.Add(this.splitter1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmCompany";
+            this.Name = "FrmCompany";
             this.Text = "company";
             ((System.ComponentModel.ISupportInitialize)(this.dgCompany)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.MaskedTextBox phone;
+
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox info;
 
-        private System.Windows.Forms.TextBox phone;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox address;
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
@@ -13,7 +12,7 @@ namespace Cafe.Class
             List<Item> list = new List<Item>();
             try
             {
-                string query = "Select idFirm, phone, address, phone, info from firm;";
+                string query = "Select idFirm, firm from firm;";
                 MySqlDataReader reader = GetData(query);
                 while (reader.Read())
                 {
@@ -30,7 +29,7 @@ namespace Cafe.Class
         public void LoadData(DataGridView dg)
         {
 
-            LoadData(dg, "firm");
+            LoadData(dg, "firm","");
         }
 
         public void DeleteData(int id)

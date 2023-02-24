@@ -2,7 +2,7 @@
 
 namespace Cafe
 {
-    partial class frmStorage
+    partial class FrmStorage
     {
         /// <summary>
         /// Required designer variable.
@@ -128,7 +128,7 @@ namespace Cafe
             this.Controls.Add(this.save);
             this.Controls.Add(this.@new);
             this.Controls.Add(this.storageDataGridView);
-            this.Name = "frmStorage";
+            this.Name = "FrmStorage";
             this.Text = "frmStorage";
             ((System.ComponentModel.ISupportInitialize)(this.storageDataGridView)).EndInit();
             this.ResumeLayout(false);

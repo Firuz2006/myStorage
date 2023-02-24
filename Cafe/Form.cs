@@ -1,14 +1,14 @@
 using System;
-using Cafe.Class;
+using System.Windows.Forms;
 
 namespace Cafe
 {
-    public abstract class Form:System.Windows.Forms.Form
+    public class Form:System.Windows.Forms.Form
     {
         protected int _id;
         protected static bool IsClientOpened;
-        protected static bool IsCompanyOpened;
         protected static bool IsInvoiceOpened;
+        protected static bool IsExpenseOpened;
         protected static bool IsCashInOpened;
         protected static bool IsCategoryOpened;
         protected static bool IsSaleOpened;
@@ -16,50 +16,69 @@ namespace Cafe
         protected static bool IsUnitOpened;
         protected static bool IsProductOpened;
         protected static bool IsStorageOpened;
-        protected static bool IsUserOpened;
         protected static bool IsCashOutOpened;
         protected static bool IsFirmOpened;
+        protected static bool IsIncomeOpened { get; set; }
+
+
+        protected void TextBoxDoubleValidation(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
         
         protected override void OnClosed(EventArgs e)
         {
             switch (this)
             {
-                case frmStorage _:
+                case FrmStorage _:
                     IsStorageOpened = false;
                     break;
                 case Rate _:
                     IsRateOpened = false;
                     break;
-                case frmCompany _:
+                case FrmCompany _:
                     IsFirmOpened = false;
                     break;
-                case frmClient _:
+                case FrmClient _:
                     IsClientOpened = false;
                     break;
-                case frmInvoice _:
+                case FrmInvoice _:
                     IsInvoiceOpened = false;
                     break;
-                case frmSale _:
+                case FrmSale _:
                     IsSaleOpened = false;
                     break;
-                case frmCashInBox _:
+                case FrmCashInBox _:
                     IsCashInOpened = false;
                     break;
-                case frmCategory _:
+                case FrmCategory _:
                     IsCategoryOpened = false;
                     break;
-                case frmUnit _:
+                case FrmUnit _:
                     IsUnitOpened = false;
                     break;
-                case frmProduct _:
+                case FrmProduct _:
                     IsProductOpened = false;
+                    break;
+                case FrmIncome _:
+                    IsIncomeOpened = false;
                     break;
             }
 
             base.OnClosed(e);
         }
 
-        protected abstract void _refresh();
-        protected abstract void _clear();
+        protected virtual void _refresh(){}
+        protected virtual void _clear(){}
     }
 }

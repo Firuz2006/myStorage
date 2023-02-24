@@ -11,12 +11,6 @@ namespace Cafe.Class
 {
     class Category: Database
     {
-
-        public Category()
-        {
-            
-        }
-
         public void LoadData(DataGridView dg)
         {
             LoadData(dg, "category");
@@ -27,12 +21,12 @@ namespace Cafe.Class
 
         public void DeleteData(int id)
         {
-            Execute("Delete from category where idCategory = " + id.ToString() + ";");
+            Execute($"Delete from category where idCategory = {id};");
         }
 
         public void InsertData(string category)
         {
-                string query = $"Insert into category(category) values('{category}')";
+                var query = $"Insert into category(category) values('{category}')";
                                //  MessageBox.Show(query);
                 Execute(query);
         }
@@ -41,36 +35,24 @@ namespace Cafe.Class
         {
             try
             {
-                string query = $"Update category set category = '{category}' where idCategory = {id};";
+                var query = $"Update category set category = '{category}' where idCategory = {id};";
               //  MessageBox.Show(query);
                 Execute(query);
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Error updateCategory: " + exception.ToString());
+                MessageBox.Show(@"Error updateCategory: " + exception.ToString());
             }
             
         }
 
-        /*public void UpdateData(int id, string category, string imagePath , bool status)
-        {
-            if (System.IO.File.Exists(imagePath))
-            {
-                string filePath = Function.GenerateFileName();
-                System.IO.File.Copy(imagePath, PATH + "/" + filePath);
-                string query = "Update category set category = '" + category + "'," +
-                 " status = " + Convert.ToInt16(status) + ", image = '" + filePath + "' where idCategory = " + id.ToString() + ";";
-                Execute(query);
-            }
-        }*/
-
         public List<Item> GetCategory()
         {
-            List<Item> list = new List<Item>();
+            var list = new List<Item>();
             try
             {
-                string query = "Select idCategory, category from category ORDER BY category;";
-                MySqlDataReader reader = GetData(query);
+                const string query = "Select idCategory, category from category ORDER BY category;";
+                var reader = GetData(query);
                 while (reader.Read())
                 {
                     list.Add(new Item(reader.GetInt16(0), reader.GetString(1)));
@@ -78,10 +60,15 @@ namespace Cafe.Class
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Error: " + exception);
+                MessageBox.Show(@"Error: " + exception);
             }
             
             return list;
+        }
+
+        public Item GetById(int id)
+        {
+            return base.GetById(id, "category", "category");
         }
     }
 }

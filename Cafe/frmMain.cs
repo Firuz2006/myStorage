@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Cafe
 {
-    public partial class frmMain : Form
+    public partial class FrmMain : Form
     {
-        public frmMain()
+        public FrmMain()
         {
             InitializeComponent();
         }
@@ -14,12 +14,12 @@ namespace Cafe
         {
             if (IsClientOpened)
             {
-                MessageBox.Show("Эта форма уже открыта");
+                MessageBox.Show(@"Эта форма уже открыта");
             }
             else
             {
-                new frmClient().Show();
-                IsCategoryOpened = true;
+                new FrmClient().Show();
+                IsClientOpened = true;
             }
         }
 
@@ -27,7 +27,7 @@ namespace Cafe
         {
             if (IsRateOpened)
             {
-                MessageBox.Show("Эта форма уже открыта");
+                MessageBox.Show(@"Эта форма уже открыта");
 
             }
             else
@@ -41,12 +41,12 @@ namespace Cafe
         {
             if (IsStorageOpened)
             {
-                MessageBox.Show("Эта форма уже открыта");
+                MessageBox.Show(@"Эта форма уже открыта");
 
             }
             else
             {
-                new frmStorage().Show();
+                new FrmStorage().Show();
                 IsStorageOpened = true;
             }
             
@@ -56,12 +56,12 @@ namespace Cafe
         {
             if (IsProductOpened)
             {
-                MessageBox.Show("Эта форма уже открыта");
+                MessageBox.Show(@"Эта форма уже открыта");
 
             }
             else
             {
-                new frmProduct().Show();
+                new FrmProduct().Show();
                 IsProductOpened = true;
             }
 
@@ -71,12 +71,12 @@ namespace Cafe
         {
             if (IsUnitOpened)
             {
-                MessageBox.Show("Эта форма уже открыта");
+                MessageBox.Show(@"Эта форма уже открыта");
   
             }
             else
             {
-                new frmUnit().Show();
+                new FrmUnit().Show();
                 IsUnitOpened = true;
             }
 
@@ -86,12 +86,12 @@ namespace Cafe
         {
             if (IsSaleOpened)
             {
-                MessageBox.Show("Эта форма уже открыта");
+                MessageBox.Show(@"Эта форма уже открыта");
  
             }
             else
             {
-                new frmSale().Show();
+                new FrmSale().Show();
                 IsSaleOpened = true;
             }
 
@@ -101,12 +101,12 @@ namespace Cafe
         {
             if (IsFirmOpened)
             {
-                MessageBox.Show("Эта форма уже открыта");
+                MessageBox.Show(@"Эта форма уже открыта");
 
             }
             else
             {
-                new frmCompany().Show();
+                new FrmCompany().Show();
                 IsFirmOpened = true;
             }
 
@@ -116,12 +116,12 @@ namespace Cafe
         {
             if (IsInvoiceOpened)
             {
-                MessageBox.Show("Эта форма уже открыта");
+                MessageBox.Show(@"Эта форма уже открыта");
 
             }
             else
             {
-                new frmInvoice().Show();
+                new FrmInvoice().Show();
                 IsInvoiceOpened = true;
             }
 
@@ -131,12 +131,12 @@ namespace Cafe
         {
             if (IsCategoryOpened)
             {
-                MessageBox.Show("Эта форма уже открыта");
+                MessageBox.Show(@"Эта форма уже открыта");
 
             }
             else
             {
-                new frmCategory().Show();
+                new FrmCategory().Show();
                 IsCategoryOpened = true;
             }
 
@@ -146,12 +146,12 @@ namespace Cafe
         {
             if (IsCashInOpened)
             {
-                MessageBox.Show("Эта форма уже открыта");
+                MessageBox.Show(@"Эта форма уже открыта");
 
             }
             else
             {
-                new frmCashInBox().Show();
+                new FrmCashInBox().Show();
                 IsCashInOpened = true;
             }
 
@@ -159,17 +159,44 @@ namespace Cafe
 
         private void _btnCashOut_Click(object sender, EventArgs e)
         {
-            
+            if (IsCashOutOpened)
+            {
+                MessageBox.Show(@"Эта форма уже открыта");
+
+            }
+            else
+            {
+                new FrmCashOutBox().Show();
+                IsCashOutOpened = true;
+            }
         }
 
-        protected override void _refresh()
+        private void button1_Click(object sender, EventArgs e)
         {
-            //not think
+            if (IsIncomeOpened)
+            {
+                MessageBox.Show(@"Эта форма уже открыта");
+
+            }
+            else
+            {
+                new FrmIncome().Show();
+                IsIncomeOpened = true;
+            }
         }
 
-        protected override void _clear()
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            //not think
+            if (IsExpenseOpened)
+            {
+                MessageBox.Show(@"Эта форма уже открыта");
+
+            }
+            else
+            {
+                new FrmExpense().Show();
+                IsExpenseOpened = true;
+            }
         }
     }
 }

@@ -114,11 +114,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\CashInBox.cs" />
+    <Compile Include="Class\CashOutBox.cs" />
     <Compile Include="Class\Category.cs" />
     <Compile Include="Class\Client.cs" />
+    <Compile Include="Class\Expence.cs" />
     <Compile Include="Class\Firm.cs" />
     <Compile Include="Class\Database.cs" />
     <Compile Include="Class\Function.cs" />
+    <Compile Include="Class\Income.cs" />
     <Compile Include="Class\Invoice.cs" />
     <Compile Include="Class\InvoiceItem.cs" />
     <Compile Include="Class\Item.cs" />
@@ -137,6 +141,12 @@
     <Compile Include="frmCashInBox.Designer.cs">
       <DependentUpon>frmCashInBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCashOutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCashOutBox.Designer.cs">
+      <DependentUpon>frmCashOutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +164,12 @@
     </Compile>
     <Compile Include="frmCompany.Designer.cs">
       <DependentUpon>frmCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExpence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExpence.Designer.cs">
+      <DependentUpon>frmExpence.cs</DependentUpon>
     </Compile>
     <Compile Include="frmInvoice.cs">
       <SubType>Form</SubType>
@@ -191,6 +207,12 @@
     <Compile Include="frmUnit.Designer.cs">
       <DependentUpon>frmUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIncome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIncome.Designer.cs">
+      <DependentUpon>frmIncome.cs</DependentUpon>
+    </Compile>
     <Compile Include="numberpad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +230,9 @@
     <EmbeddedResource Include="frmCashInBox.resx">
       <DependentUpon>frmCashInBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCashOutBox.resx">
+      <DependentUpon>frmCashOutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCompany.resx">
       <DependentUpon>frmCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExpence.resx">
+      <DependentUpon>frmExpence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInvoice.resx">
       <DependentUpon>frmInvoice.cs</DependentUpon>
@@ -234,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmUnit.resx">
       <DependentUpon>frmUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIncome.resx">
+      <DependentUpon>frmIncome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="numberpad.resx">
       <DependentUpon>numberpad.cs</DependentUpon>

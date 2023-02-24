@@ -2,7 +2,7 @@
 
 namespace Cafe
 {
-    partial class frmCategory
+    partial class FrmCategory
     {
         /// <summary>
         /// Required designer variable.
@@ -110,7 +110,7 @@ namespace Cafe
             this.Controls.Add(this.save);
             this.Controls.Add(this.@new);
             this.Controls.Add(this.categoryDataGrid);
-            this.Name = "frmCategory";
+            this.Name = "FrmCategory";
             this.Text = "frmCategory";
             ((System.ComponentModel.ISupportInitialize)(this.categoryDataGrid)).EndInit();
             this.ResumeLayout(false);

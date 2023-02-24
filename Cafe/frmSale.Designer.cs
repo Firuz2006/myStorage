@@ -2,7 +2,7 @@
 
 namespace Cafe
 {
-    partial class frmSale
+    partial class FrmSale
     {
         /// <summary>
         /// Required designer variable.
@@ -39,16 +39,17 @@ namespace Cafe
             this.label7 = new System.Windows.Forms.Label();
             this._cbFirm = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this._txtTJS = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this._txtUSD = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this._txtQuantity = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this._cbProduct = new System.Windows.Forms.ComboBox();
             this._isPayed = new System.Windows.Forms.CheckBox();
+            this._txtUSD = new System.Windows.Forms.TextBox();
+            this._txtTJS = new System.Windows.Forms.TextBox();
+            this._txtQuantity = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._txtQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -123,13 +124,6 @@ namespace Cafe
             this.label6.TabIndex = 30;
             this.label6.Text = "Фирма";
             // 
-            // _txtTJS
-            // 
-            this._txtTJS.Location = new System.Drawing.Point(12, 219);
-            this._txtTJS.Name = "_txtTJS";
-            this._txtTJS.Size = new System.Drawing.Size(248, 22);
-            this._txtTJS.TabIndex = 27;
-            // 
             // label4
             // 
             this.label4.Location = new System.Drawing.Point(12, 197);
@@ -138,13 +132,6 @@ namespace Cafe
             this.label4.TabIndex = 26;
             this.label4.Text = "Цена в сомони(TJS)";
             // 
-            // _txtUSD
-            // 
-            this._txtUSD.Location = new System.Drawing.Point(12, 160);
-            this._txtUSD.Name = "_txtUSD";
-            this._txtUSD.Size = new System.Drawing.Size(248, 22);
-            this._txtUSD.TabIndex = 25;
-            // 
             // label3
             // 
             this.label3.Location = new System.Drawing.Point(12, 134);
@@ -152,13 +139,6 @@ namespace Cafe
             this.label3.Size = new System.Drawing.Size(248, 23);
             this.label3.TabIndex = 24;
             this.label3.Text = "Цена в долларах(USD)";
-            // 
-            // _txtQuantity
-            // 
-            this._txtQuantity.Location = new System.Drawing.Point(12, 98);
-            this._txtQuantity.Name = "_txtQuantity";
-            this._txtQuantity.Size = new System.Drawing.Size(248, 22);
-            this._txtQuantity.TabIndex = 23;
             // 
             // label2
             // 
@@ -193,11 +173,35 @@ namespace Cafe
             this._isPayed.Text = "Оплачено";
             this._isPayed.UseVisualStyleBackColor = true;
             // 
+            // _txtUSD
+            // 
+            this._txtUSD.Location = new System.Drawing.Point(12, 160);
+            this._txtUSD.Name = "_txtUSD";
+            this._txtUSD.Size = new System.Drawing.Size(248, 22);
+            this._txtUSD.TabIndex = 25;
+            // 
+            // _txtTJS
+            // 
+            this._txtTJS.Location = new System.Drawing.Point(12, 219);
+            this._txtTJS.Name = "_txtTJS";
+            this._txtTJS.Size = new System.Drawing.Size(248, 22);
+            this._txtTJS.TabIndex = 27;
+            // 
+            // _txtQuantity
+            // 
+            this._txtQuantity.Location = new System.Drawing.Point(12, 98);
+            this._txtQuantity.Maximum = new decimal(new int[] { -1530494976, 232830, 0, 0 });
+            this._txtQuantity.Name = "_txtQuantity";
+            this._txtQuantity.Size = new System.Drawing.Size(248, 22);
+            this._txtQuantity.TabIndex = 35;
+            // 
             // frmSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(901, 625);
+            this.Controls.Add(this._txtQuantity);
             this.Controls.Add(this._isPayed);
             this.Controls.Add(this._cbStorage);
             this.Controls.Add(this.label7);
@@ -207,7 +211,6 @@ namespace Cafe
             this.Controls.Add(this.label4);
             this.Controls.Add(this._txtUSD);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this._txtQuantity);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this._cbProduct);
@@ -215,12 +218,18 @@ namespace Cafe
             this.Controls.Add(this._btnSave);
             this.Controls.Add(this._btnNew);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmSale";
-            this.Text = "frmSale";
+            this.Location = new System.Drawing.Point(15, 15);
+            this.Name = "FrmSale";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._txtQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.NumericUpDown _txtQuantity;
+
+        private System.Windows.Forms.TextBox _txtUSD;
+        private System.Windows.Forms.TextBox _txtTJS;
 
         private System.Windows.Forms.CheckBox _isPayed;
 
@@ -228,11 +237,8 @@ namespace Cafe
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox _cbFirm;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox _txtTJS;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox _txtUSD;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox _txtQuantity;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox _cbProduct;

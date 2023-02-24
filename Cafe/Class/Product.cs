@@ -1,21 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cafe.Class
 {
     internal class Product:Database
     {
-        public string PATH = "images/product";
-        public Product()
-        {
-
-        }
 
         public void LoadData(DataGridView dg)
         {
@@ -23,38 +14,36 @@ namespace Cafe.Class
                               p.`idProduct`,
                               p.`product`,
                               cat.`category`,
-                              u.`unit`,
+                              u.`unit`
                             FROM
                               product AS p
                               INNER JOIN category AS cat
                               ON p.`idCategory` = cat.`idCategory`
                               INNER JOIN unit AS u
                               ON p.`idUnit`  = u.`idUnit`";
-            LoadData(dg, "product");
+            LoadData(dg, "product",query);
         }
 
         public void DeleteData(int id)
         {
-            Execute("Delete from product where idProduct = " + id.ToString() + ";");
+            Execute($"Delete from product where idProduct = {id};");
         }
         public void InsertData(string product, int  idCategory, int idUnit)
         {
             string query = "Insert into product(product, idCategory, idUnit) values" +
                            $"('{product}', '{idCategory}','{idUnit}')";
-                MessageBox.Show(query);
                 Execute(query);
             }
         public void UpdateData(int idProduct, string product, int idCategory, int idUnit)  
         {
-            string query="";
             try
             {
-                query = $"Update product set product  = '{product}' , idCategory = {idCategory}, idUnit = {idUnit} where idProduct={idProduct}";
+                var query=$"Update product set product  = '{product}' , idCategory = {idCategory}, idUnit = {idUnit} where idProduct={idProduct}";
                 Execute(query);
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Error: " + exception.ToString());
+                MessageBox.Show("Error: " + exception);
             }
 
         }
@@ -79,49 +68,31 @@ namespace Cafe.Class
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Error: " + exception.ToString());
+                MessageBox.Show("Error: " + exception);
             }
 
             // finally
             // {
-                closeConnection();
+                CloseConnection();
             // }
 
             return list;
         }
 
-        public IDictionary<string, string> GetProductById(int IdProduct)
+        public IDictionary<string, string> GetProductById(int idProduct)
         {
             IDictionary<string, string> dictionary = new Dictionary<string, string>();
 
-            string query = @"SELECT 
-                              p.idProduct,
-                              p.product,
-                              u.unit,
-                              p.price,
-                              u.idUnit
-                            FROM
-                              product p 
-                              INNER JOIN unit u 
-                                ON p.idUnit = u.idUnit 
-                              /*INNER JOIN invoice_item ii 
-                                ON p.idProduct = ii.idProduct 
-                                AND (ii.count > 0 OR ii.count = -10)
-                              */
-                            AND p.status = 1
-                            AND p.idProduct = " + IdProduct.ToString() +
-                            " LIMIT 1;";
-            MySqlDataReader reader = GetData(query);
+            string query = $"select p.idUnit, p.idCategory from product as p where p.idProduct={idProduct}";
+                
+            var reader = GetData(query);
             while (reader.Read())
             {
-                dictionary.Add("productId", reader.GetInt16(0).ToString());
-                dictionary.Add("productName", reader.GetString(1));
-                dictionary.Add("productUnit", reader.GetString(2));
-                dictionary.Add("productPrice", reader.GetDecimal(3).ToString());
-                dictionary.Add("idUnit", reader.GetInt32(4).ToString());
+                dictionary.Add("idUnit", reader.GetString(0));
+                dictionary.Add("idCategory", reader.GetDecimal(1).ToString());
 
             }
-            closeConnection();
+            CloseConnection();
             return dictionary;
         }
     }

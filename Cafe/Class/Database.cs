@@ -7,59 +7,57 @@ namespace Cafe.Class
 {
     public abstract class Database
     {
-        public MySqlConnection connection;
-        public MySqlTransaction transaction;
+        protected readonly MySqlConnection Connection;
 
-        public Database()
+        protected Database()
         {
-            string user = "root";
-            string project = "mystorage";
-            string password = "";
-            string connectionString;
-            string server = "localhost";
-            connectionString = "SERVER=" + server + "; UID =" + user + ";  DATABASE = " + project + "; PASSWORD = " + password + "; CHARSET = utf8;";
-            connection = new MySqlConnection(connectionString);
+            const string user = "root";
+            const string project = "myStorage";
+            const string password = "";
+            const string server = "localhost";
+            const string connectionString = "SERVER=" + server + "; UID =" + user + ";  DATABASE = " + project + "; PASSWORD = " + password + "; CHARSET = utf8;";
+            Connection = new MySqlConnection(connectionString);
 
         }
 
-        private void openConnection()
+        private void OpenConnection()
         { 
-             if(connection.State == ConnectionState.Closed)   connection.Open();
+             if(Connection.State == ConnectionState.Closed)   Connection.Open();
             //  transaction = connection.BeginTransaction();
         }
 
-        protected void closeConnection()
+        protected void CloseConnection()
         {
-            connection.Close();
+            Connection.Close();
         }
 
         protected void LoadData(DataGridView dg, string table, string query = "")
         {
-            closeConnection();
-            string queryString = "SELECT * FROM " + table + ";";
+            CloseConnection();
+            var queryString = "SELECT * FROM " + table + ";";
             if (!string.IsNullOrEmpty(query))
             {
                 queryString = query;
             }
-            openConnection();
-            MySqlDataAdapter da = new MySqlDataAdapter(queryString, connection);
-            DataTable dt = new DataTable();
+            OpenConnection();
+            var da = new MySqlDataAdapter(queryString, Connection);
+            var dt = new DataTable();
             da.Fill(dt);
             dg.DataSource = dt;
-            connection.Close();
+            Connection.Close();
             da.Dispose();
             dt.Dispose();
         }
 
-        public void Execute(string sql)
+        protected void Execute(string sql)
         {
             try
             {
-                closeConnection();
-                openConnection();
+                CloseConnection();
+                OpenConnection();
 
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection;
+                var cmd = new MySqlCommand();
+                cmd.Connection = Connection;
                 cmd.CommandText = sql;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
@@ -73,19 +71,19 @@ namespace Cafe.Class
 
             finally
             {
-                closeConnection();
+                CloseConnection();
             }
         }
 
         protected MySqlDataReader GetData(string query)
         {
-            closeConnection();
+            CloseConnection();
             MySqlDataReader reader = null;
             try
             {
-                openConnection();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection;
+                OpenConnection();
+                var cmd = new MySqlCommand();
+                cmd.Connection = Connection;
                 cmd.CommandText = query;
                 cmd.CommandType = CommandType.Text;
                 reader = cmd.ExecuteReader();
@@ -93,9 +91,19 @@ namespace Cafe.Class
             }
             catch (MySqlException exception)
             {
-                MessageBox.Show("Error: " + exception);
+                MessageBox.Show(@"Error: " + exception);
             }
             return reader;
+        }
+
+        protected Item GetById(int id,string table,string colName)
+        {
+            CloseConnection();
+            var query = $"SELECT {colName} FROM {table} where id{table}={id};";
+            OpenConnection();
+            var data = GetData(query);
+            data.Read();
+            return new Item(id, data.GetString(0));
         }
     }
 }

@@ -8,9 +8,10 @@ namespace Cafe
         [STAThread]
         private static void Main()
         {   
+            Console.Beep();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new FrmMain());
          //   Application.Run(new numberpad());
 
         }

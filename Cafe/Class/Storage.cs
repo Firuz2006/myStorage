@@ -29,7 +29,7 @@ namespace Cafe.Class
 
         public void InsertData(string storage,string address)
         {
-                string query = $"Insert into storage(storage, address) values('{storage}','{address}')";
+                var query = $"Insert into storage(storage, address) values('{storage}','{address}')";
                                //  MessageBox.Show(query);
                 Execute(query);
         }
@@ -38,7 +38,7 @@ namespace Cafe.Class
         {
             try
             {
-                string query = $"Update storage set storage = '{storage}',address='{address}' where idstorage = {id};";
+                var query = $"Update storage set storage = '{storage}',address='{address}' where idstorage = {id};";
               //  MessageBox.Show(query);
                 Execute(query);
             }
@@ -52,11 +52,11 @@ namespace Cafe.Class
 
         public List<Item> GetStorage()
         {
-            List<Item> list = new List<Item>();
+            var list = new List<Item>();
             try
             {
-                string query = "Select idStorage, storage from storage;";
-                MySqlDataReader reader = GetData(query);
+                const string query = "Select idStorage, storage from storage;";
+                var reader = GetData(query);
                 while (reader.Read())
                 {
                     list.Add(new Item(reader.GetInt16(0), reader.GetString(1)));

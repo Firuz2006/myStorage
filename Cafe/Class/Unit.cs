@@ -45,16 +45,21 @@ namespace Cafe.Class
             string query = "Insert into unit(unit)" +
                            " values ('{0}')";
             string queryCommand = string.Format(query, Company);
-            MessageBox.Show(queryCommand);
+            // MessageBox.Show(queryCommand);
             Execute(queryCommand);
         }
 
         public void UpdateData(int idUnit, string Unit)
         {
-            string query = "Update unit set unit  = '{0}' Where idUnit = {1};";
-            string commandString = string.Format(query, Unit, idUnit);
+            const string query = "Update unit set unit  = '{0}' Where idUnit = {1};";
+            var commandString = string.Format(query, Unit, idUnit);
             MessageBox.Show(commandString);
             Execute(commandString);
+        }
+
+        public Item GetById(int id)
+        {
+            return base.GetById(id, "Unit", "unit");
         }
     }
 }

@@ -4,13 +4,14 @@ using Cafe.Class;
 
 namespace Cafe
 {
-    public partial class frmUnit : Form
+    public partial class FrmUnit : Form
     {
         private readonly Unit _unit;
-        public frmUnit()
+        public FrmUnit()
         {
             _unit = new Unit();
             InitializeComponent();
+            _refresh();
         }
 
         private void btnNew_Click(object sender, EventArgs e)
