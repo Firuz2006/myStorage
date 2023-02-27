@@ -38,13 +38,13 @@ namespace Cafe
             this._btnSale = new System.Windows.Forms.Button();
             this._btnFirm = new System.Windows.Forms.Button();
             this._btnRate = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this._btnCashIn = new System.Windows.Forms.Button();
             this._btnCashOut = new System.Windows.Forms.Button();
             this._btnCategory = new System.Windows.Forms.Button();
             this._btnInvoice = new System.Windows.Forms.Button();
             this.Income = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this._btnReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _btnClient
@@ -83,7 +83,7 @@ namespace Cafe
             this._bntUnit.Name = "_bntUnit";
             this._bntUnit.Size = new System.Drawing.Size(146, 43);
             this._bntUnit.TabIndex = 2;
-            this._bntUnit.Text = "Юнит";
+            this._bntUnit.Text = "Ед. Измерения";
             this._bntUnit.UseVisualStyleBackColor = true;
             this._bntUnit.Click += new System.EventHandler(this._bntUnit_Click);
             // 
@@ -109,7 +109,7 @@ namespace Cafe
             // 
             // _btnRate
             // 
-            this._btnRate.Location = new System.Drawing.Point(164, 212);
+            this._btnRate.Location = new System.Drawing.Point(316, 114);
             this._btnRate.Name = "_btnRate";
             this._btnRate.Size = new System.Drawing.Size(146, 43);
             this._btnRate.TabIndex = 11;
@@ -117,22 +117,12 @@ namespace Cafe
             this._btnRate.UseVisualStyleBackColor = true;
             this._btnRate.Click += new System.EventHandler(this._btnRate_Click);
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(164, 316);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(146, 43);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "Фирма";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // _btnCashIn
             // 
             this._btnCashIn.Location = new System.Drawing.Point(164, 110);
             this._btnCashIn.Name = "_btnCashIn";
             this._btnCashIn.Size = new System.Drawing.Size(146, 47);
             this._btnCashIn.TabIndex = 9;
-            this._btnCashIn.Text = "Доход";
             this._btnCashIn.UseVisualStyleBackColor = true;
             this._btnCashIn.Click += new System.EventHandler(this._btnCashIn_Click);
             // 
@@ -178,7 +168,7 @@ namespace Cafe
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(327, 204);
+            this.button1.Location = new System.Drawing.Point(316, 63);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 43);
             this.button1.TabIndex = 13;
@@ -186,15 +176,25 @@ namespace Cafe
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // frmMain
+            // _btnReport
+            // 
+            this._btnReport.Location = new System.Drawing.Point(635, 10);
+            this._btnReport.Name = "_btnReport";
+            this._btnReport.Size = new System.Drawing.Size(153, 45);
+            this._btnReport.TabIndex = 14;
+            this._btnReport.Text = "Отчёт";
+            this._btnReport.UseVisualStyleBackColor = true;
+            this._btnReport.Click += new System.EventHandler(this._btnReport_Click);
+            // 
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this._btnReport);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Income);
             this.Controls.Add(this._btnRate);
-            this.Controls.Add(this.button7);
             this.Controls.Add(this._btnCashIn);
             this.Controls.Add(this._btnCashOut);
             this.Controls.Add(this._btnCategory);
@@ -210,6 +210,8 @@ namespace Cafe
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.Button _btnReport;
+
         private System.Windows.Forms.Button button1;
 
         private System.Windows.Forms.Button Income;
@@ -221,7 +223,6 @@ namespace Cafe
         private System.Windows.Forms.Button _btnSale;
         private System.Windows.Forms.Button _btnFirm;
         private System.Windows.Forms.Button _btnRate;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button _btnCashIn;
         private System.Windows.Forms.Button _btnCashOut;
         private System.Windows.Forms.Button _btnCategory;

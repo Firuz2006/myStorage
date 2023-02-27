@@ -90,6 +90,7 @@ namespace Cafe
             _cbIncome.SelectedItem = _cbIncome.Items.Cast<Item>().Single(p=>p.Key==inbox["idIncome"]);
             _cbStorage.SelectedItem = _cbStorage.Items.Cast<Item>()
                 .Single(p => p.Key == inbox["idStorage"]);
+            
         }
     }
 }

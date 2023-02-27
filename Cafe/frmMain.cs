@@ -198,5 +198,18 @@ namespace Cafe
                 IsExpenseOpened = true;
             }
         }
+
+        private void _btnReport_Click(object sender, EventArgs e)
+        {
+            if (IsReportOpened)
+            {
+                MessageBox.Show(@"Эта форма уже открыта");
+            }
+            else
+            {
+                new FrmReport().Show();
+                IsReportOpened = true;
+            }
+        }
     }
 }

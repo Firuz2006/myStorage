@@ -18,6 +18,7 @@ namespace Cafe
         protected static bool IsStorageOpened;
         protected static bool IsCashOutOpened;
         protected static bool IsFirmOpened;
+        protected static bool IsReportOpened;
         protected static bool IsIncomeOpened { get; set; }
 
 

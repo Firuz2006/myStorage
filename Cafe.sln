@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cafe", "Cafe\Cafe.csproj", "{557C604C-8238-405B-BCE4-F4F3B6DE260E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenceAdmin", "LicenceAdmin\LicenceAdmin.csproj", "{CF49C4B4-3610-463E-A664-13CFEFB47FB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{557C604C-8238-405B-BCE4-F4F3B6DE260E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{557C604C-8238-405B-BCE4-F4F3B6DE260E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{557C604C-8238-405B-BCE4-F4F3B6DE260E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF49C4B4-3610-463E-A664-13CFEFB47FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF49C4B4-3610-463E-A664-13CFEFB47FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF49C4B4-3610-463E-A664-13CFEFB47FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF49C4B4-3610-463E-A664-13CFEFB47FB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
