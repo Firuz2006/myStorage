@@ -57,6 +57,7 @@ namespace Cafe
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(621, 512);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // _btnNew
             // 
@@ -149,7 +150,7 @@ namespace Cafe
             this._txtPhone.Size = new System.Drawing.Size(250, 22);
             this._txtPhone.TabIndex = 14;
             // 
-            // frmClient
+            // FrmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

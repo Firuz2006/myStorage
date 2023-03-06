@@ -33,13 +33,13 @@ namespace Cafe.Class
         {
             Execute("Delete from invoice where idInvoice = " + id.ToString() + ";");
         }
-        public void InsertData(int idProduct, int idStorage,int quantity,decimal usd,decimal tjs,bool isPayed)
+        public void InsertData(int idProduct, int idStorage, int idClient,int quantity,decimal usd,decimal tjs,bool isPayed)
         {
             var date = DateTime.Now.ToString("yyyy-MM-dd");
             Console.WriteLine(date);
             string query =
-                "Insert into Sale(idProduct, idStorage, quantity, priceusd, pricetjs, date, isPayed)" +
-                $" values ({idProduct}, {idStorage},{quantity},{usd},{tjs},'{date}',{(isPayed ? 1 : 0)})";
+                "Insert into Sale(idProduct, idStorage, idClient, quantity, priceusd, pricetjs, date, isPayed)" +
+                $" values ({idProduct}, {idStorage}, {idClient}, {quantity}, {usd}, {tjs}, '{date}',{(isPayed ? 1 : 0)})";
             Execute(query);
         }
 

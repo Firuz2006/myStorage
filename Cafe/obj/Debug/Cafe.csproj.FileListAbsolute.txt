@@ -134,3 +134,4 @@ C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.pdb
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.FrmCashOutBox.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.FrmReport.resources
 C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.FrmLicence.resources
+C:\Users\user\RiderProjects\Cafe\Cafe_10.04.2020\Cafe\Cafe\obj\Debug\Cafe.FrmProdSelect.resources

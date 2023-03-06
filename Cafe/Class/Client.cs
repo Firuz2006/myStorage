@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Cafe.Class
 {
@@ -9,8 +11,11 @@ namespace Cafe.Class
         public void LoadData(DataGridView dg)
         {
             LoadData(dg, "client");
-            dg.Columns[0].HeaderText = "№";
-            dg.Columns[1].HeaderText = "Категория";
+            dg.Columns[0].HeaderText = @"№";
+            dg.Columns[1].HeaderText = @"Имя";
+            dg.Columns[2].HeaderText = @"Фамилия";
+            dg.Columns[3].HeaderText = @"Телефон";
+            dg.Columns[4].HeaderText = @"Адресс";
 
         }
 
@@ -36,9 +41,29 @@ namespace Cafe.Class
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Error updateCategory: " + exception.ToString());
+                MessageBox.Show($@"Error updateCategory: {exception}");
             }
             
+        }
+
+        public List<Item> GetClient()
+        {
+            List<Item> res = new();
+            try
+            {
+                string query = @"Select idClient, firstName+' '+lastName from client;";
+                MySqlDataReader reader = GetData(query);
+                while (reader.Read())
+                {
+                    res.Add(new Item(reader.GetInt16(0), reader.GetString(1)));
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Error: " + exception);
+            }
+
+            return res;
         }
     }
 }

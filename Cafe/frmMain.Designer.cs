@@ -123,6 +123,7 @@ namespace Cafe
             this._btnCashIn.Name = "_btnCashIn";
             this._btnCashIn.Size = new System.Drawing.Size(146, 47);
             this._btnCashIn.TabIndex = 9;
+            this._btnCashIn.Text = "приход";
             this._btnCashIn.UseVisualStyleBackColor = true;
             this._btnCashIn.Click += new System.EventHandler(this._btnCashIn_Click);
             // 

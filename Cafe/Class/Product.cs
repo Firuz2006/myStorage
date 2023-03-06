@@ -7,10 +7,24 @@ namespace Cafe.Class
 {
     internal class Product:Database
     {
-
+        public void LoadDataByCategory(DataGridView dg,int catId)
+        {
+            var query = @$"select 
+                                p.idProduct,
+                                p.product,
+                                u.unit
+                            from
+                                category as c,
+                                product as p,
+                                unit as u
+                            where
+                                u.idUnit=p.idUnit and p.idCategory={catId}";
+            LoadData(dg ,"product",query);
+            
+        }
         public void LoadData(DataGridView dg)
         {
-            string query = @"SELECT 
+            const string query = @"SELECT 
                               p.`idProduct`,
                               p.`product`,
                               cat.`category`,

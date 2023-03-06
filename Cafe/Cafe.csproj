@@ -26,6 +26,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -135,7 +136,9 @@
     <Compile Include="Class\TableCategory.cs" />
     <Compile Include="Class\Unit.cs" />
     <Compile Include="Class\User.cs" />
-    <Compile Include="Form.cs" />
+    <Compile Include="Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCashInBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +156,12 @@
     </Compile>
     <Compile Include="frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCatSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCatSelect.Designer.cs">
+      <DependentUpon>FrmCatSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="frmClient.cs">
       <SubType>Form</SubType>
@@ -249,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCatSelect.resx">
+      <DependentUpon>FrmCatSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmClient.resx">
       <DependentUpon>frmClient.cs</DependentUpon>

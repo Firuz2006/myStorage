@@ -51,5 +51,24 @@ namespace Cafe.Class
                 $"update Invoice set idFirm={idFirm}, idProduct={idProduct}, idStorage={idStorage}, quantity={quantity}, priceusd='{usd}', pricetjs='{tjs}', date='{date}', sellingPrice='{sale}', isPayed={(isPayed ? 1 : 0)} where idInvoice={idInvoice}";
             Execute(query);
         }
+
+        public Dictionary<string, string> GetById(int id)
+        {
+            var res = new Dictionary<string, string>();
+            var query = $@"select idInvoice, quantity, priceusd, pricetjs, sellingPrice, isPayed, idProduct, idStorage from invoice where idInvoice={id}";
+            var dataReader = GetData(query);
+            
+            if (!dataReader.Read()) return res;
+            res.Add("id",dataReader.GetInt32(0).ToString());
+            res.Add("quantity",dataReader.GetInt32(1).ToString());
+            res.Add("usd",dataReader.GetDecimal(2).ToString());
+            res.Add("tjs",dataReader.GetDecimal(3).ToString());
+            res.Add("sale",dataReader.GetDecimal(4).ToString());
+            res.Add("isPayed",dataReader.GetInt32(5).ToString());
+            res.Add("product",dataReader.GetDecimal(6).ToString());
+            res.Add("storage",dataReader.GetDecimal(7).ToString());
+
+            return res;
+        }
     }
 }
