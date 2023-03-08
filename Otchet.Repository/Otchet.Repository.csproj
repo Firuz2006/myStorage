@@ -10,8 +10,4 @@
       <ProjectReference Include="..\Otchet.DataBase\Otchet.DataBase.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="SimpleEntitiesRepository" />
-    </ItemGroup>
-
 </Project>

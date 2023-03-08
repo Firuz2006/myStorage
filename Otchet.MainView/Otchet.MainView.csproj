@@ -11,4 +11,21 @@
       <ProjectReference Include="..\Otchet.Repository\Otchet.Repository.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MaterialDesignThemes" Version="4.8.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="SimplePages\UnitPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="SimplePages\ProductPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
 </Project>

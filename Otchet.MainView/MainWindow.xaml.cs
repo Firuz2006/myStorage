@@ -1,28 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Otchet.DataBase.Contexts;
+using Otchet.MainView.SimplePages;
 
-namespace Otchet.MainView
+namespace Otchet.MainView;
+
+public partial class MainWindow
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        new Thread(() => Console.WriteLine(new MainDbContext().Categories.Count()))
+            .Start(); // это потому что первый запрост фреймворка энтити медленный;
+    }
+
+    private void CategoryClick(object sender, RoutedEventArgs e)
+    {
+        MainFrame.Content = new CategoryPage();
+    }
+
+    private void ProductClick(object sender, RoutedEventArgs e)
+    {
+        MainFrame.Content = new ProductPage();
+    }
+
+    private void StorageClick(object sender, RoutedEventArgs e)
+    {
+            
+    }
+
+    private void FirmClick(object sender, RoutedEventArgs e)
+    {
+            
+    }
+
+    private void UnitClick(object sender, RoutedEventArgs e)
+    {
+        MainFrame.Content = new UnitPage();
     }
 }
