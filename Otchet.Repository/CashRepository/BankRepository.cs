@@ -3,18 +3,22 @@ using Otchet.DataBase.Contexts;
 
 namespace Otchet.Repository.CashRepository;
 
-public class BankRepository
+public class BankRepository:Repository<Bank>
 {
-    private readonly MainDbContext _context = new();
+    public BankRepository(MainDbContext context):base(context)
+    {
+        
+    }
+    
     public bool CreateBank(string name)
     {
-        _context.Banks.Add(new Bank() { CashTjs = 0, CashUsd = 0,Name = name});
+        _dbSet.Add(new Bank() { CashTjs = 0, CashUsd = 0,Name = name});
         return true;
     }
 
     public bool Pay(int bankId, decimal oneDollarIs, bool isUsd, decimal money ,int clientId=1)
     {
-        var bank=_context.Banks.SingleOrDefault(b => b.Id == bankId);
+        var bank=_dbSet.SingleOrDefault(b => b.Id == bankId);
         if (bank == null) return false;
 
         if (isUsd)

@@ -1,8 +1,7 @@
 ﻿namespace Otchet.Core.Models;
 
-public sealed class Product
+public sealed class Product:EntityBase
 {
-    public int Id { get; set; }
     public string Name { get; set; }
     
     public int UnitId { get; set; }

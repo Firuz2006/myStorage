@@ -1,8 +1,8 @@
 ﻿namespace Otchet.Core.Models;
 
-public class CashIn
+public class CashIn:EntityBase
 {
-    public int Id { get; set; }
+    
     public decimal OneDollarIs { get; set; }
     public bool IsMoneyTypeUsd { get; set; }
     public bool IsClientMoney { get; set; }

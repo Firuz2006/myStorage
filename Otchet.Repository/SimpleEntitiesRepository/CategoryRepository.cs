@@ -1,35 +1,39 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Application.Common.Abstractions;
+using Microsoft.EntityFrameworkCore;
 using Otchet.Core.Models;
 using Otchet.DataBase.Contexts;
 
 namespace Otchet.Repository.SimpleEntitiesRepository;
 
-public class CategoryRepository
+public class CategoryRepository:Repository<Category>,ICategoryRepository
 {
-    private readonly MainDbContext _context = new();
+    
 
-    public bool Add(Category category)
+    public CategoryRepository(MainDbContext context):base (context)
     {
-        _context.Categories.Add(category);
-        _context.SaveChanges();
+        
+    }
+    public override bool Add(Category category)
+    {
+       _dbSet.Add(category);
+        
         return true;
     }
 
-    public bool Update(Category category)
+    public override bool Update(Category category)
     {
-        _context.Categories.Update(category);
-        _context.SaveChanges();
+        _dbSet.Update(category);
         return true;
     }
 
-    public async Task<List<Category>> GetCategory() =>await _context.Categories.ToListAsync();
+    public override async Task<List<Category>> GetAll() =>await _dbSet.ToListAsync();
 
-    public bool Delete(int id)
+    public override bool Delete(int id)
     {
-        var category = _context.Categories.SingleOrDefault(c => c.Id == id);
+        var category = _dbSet.SingleOrDefault(c => c.Id == id);
         if (category == null)return false;
         
-        _context.Categories.Remove(category);
+        _dbSet.Remove(category);
         return true;
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace Otchet.Core.Models;
 
-public class Bank
+public class Bank:EntityBase
 {
-    public int Id { get; set; }
+    
     public string Name { get; set; }
     public decimal CashUsd { get; set; }
     public decimal CashTjs { get; set; }

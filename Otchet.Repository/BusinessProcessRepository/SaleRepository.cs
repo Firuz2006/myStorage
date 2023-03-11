@@ -1,6 +1,13 @@
-﻿namespace Otchet.Repository.BusinessProcessRepository;
+﻿using System.Reflection.Metadata;
+using Application.Common.Abstractions;
+using Otchet.Core.Models;
+using Otchet.DataBase.Contexts;
 
-public class SaleRepository
+namespace Otchet.Repository.BusinessProcessRepository;
+
+public class SaleRepository:Repository<Sale>,ISaleRepository
 {
-    
+    public SaleRepository(MainDbContext context) : base(context)
+    {
+    }
 }

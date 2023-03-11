@@ -1,8 +1,7 @@
 ﻿namespace Otchet.Core.Models;
 
-public class Invoice
+public class Invoice:EntityBase
 {
-    public int Id { get; set; }
     public int Quantity { get; set; }
     public decimal OneDollarIs { get; set; }
     public decimal SellingPrice { get; set; }

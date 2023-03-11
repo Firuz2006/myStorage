@@ -1,8 +1,7 @@
 ﻿namespace Otchet.Core.Models;
 
-public class Firm
+public class Firm:EntityBase
 {
-    public int Id { get; set; }
     public string Name { get; set; }
     public string Phone { get; set; }
     public string Address { get; set; }

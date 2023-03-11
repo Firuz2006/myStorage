@@ -1,8 +1,8 @@
 ﻿namespace Otchet.Core.Models;
 
-public class Rate
+public class Rate:EntityBase
 {
-    public int Id { get; set; }
+    
     public decimal Usd { get; set; }
     public decimal Tjs { get; set; }
     public DateTime Date { get; set; } = DateTime.Now;

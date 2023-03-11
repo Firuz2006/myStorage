@@ -1,8 +1,7 @@
 ﻿namespace Otchet.Core.Models;
 
-public class CashOut
+public class CashOut:EntityBase
 {
-    public int Id { get; set; }
     public decimal OneDollarIs { get; set; }
     public bool IsMoneyTypeUsd { get; set; }
     public bool IsClientMoney { get; set; }

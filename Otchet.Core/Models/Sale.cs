@@ -1,8 +1,7 @@
 ﻿namespace Otchet.Core.Models;
 
-public class Sale
+public class Sale:EntityBase
 {
-    public int Id { get; set; }
     public int Quantity { get; set; }
     public decimal OneDollarId { get; set; }
     public DateTime Date { get; set; }

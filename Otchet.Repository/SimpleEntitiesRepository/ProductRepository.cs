@@ -1,35 +1,37 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Application.Common.Abstractions;
+using Microsoft.EntityFrameworkCore;
 using Otchet.Core.Models;
 using Otchet.DataBase.Contexts;
 
 namespace Otchet.Repository.SimpleEntitiesRepository;
 
-public class ProductRepository
+public class ProductRepository:Repository<Product>,IProductRepository
 {
+    public ProductRepository(MainDbContext context) :base (context)
+    {
+        
+    }
     private readonly MainDbContext _context = new();
     
-    public bool Add(Product product)
+    public override bool Add(Product product)
     {
-        _context.Products.Add(product);
-        _context.SaveChanges();
+        _dbSet.Add(product);
         return true;
     }
 
-    public bool Update(Product product)
+    public override bool Update(Product product)
     {
-        _context.Products.Update(product);
-        _context.SaveChanges();
+        _dbSet.Update(product);
         return true;
     }
 
-    public async Task<List<Product>> GetProducts() =>await _context.Products.ToListAsync();
+    public override  async Task<List<Product>> GetAll() =>await _dbSet.ToListAsync();
 
-    public bool Delete(int id)
+    public override bool Delete(int id)
     {
         var product = _context.Products.SingleOrDefault(c => c.Id == id);
         if (product == null)return false;
-        
-        _context.Products.Remove(product);
+        _dbSet.Remove(product);
         return true;
     }
 }
