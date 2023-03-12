@@ -8,6 +8,7 @@ public class Page:System.Windows.Controls.Page
 
     protected virtual Task _refresh()
     {
+        
         return null;
     }
 }

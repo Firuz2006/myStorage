@@ -3,9 +3,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Otchet.Core.Models;
+using Otchet.Repository.BusinessProcessRepository;
 using Otchet.Repository.SimpleEntitiesRepository;
 
-namespace Otchet.MainView.SimplePages;
+namespace Otchet.MainView.BusinessPages;
 
 public partial class ProductPage
 {
@@ -29,11 +30,11 @@ public partial class ProductPage
     private void Delete(object sender, RoutedEventArgs e)
     {
         if (_id==0)return;
-        _unit.Delete(_id);
+        _product.Delete(_id);
         Clear();
     }
 
-    private void Save(object sender, RoutedEventArgs e)
+    private async void Save(object sender, RoutedEventArgs e)
     {
         var category = (Category)_cbCategory.SelectedItem;
         var unit = (Unit)_cbUnit.SelectedItem;
@@ -43,7 +44,7 @@ public partial class ProductPage
         }
         else
         {
-            _product.Update(_selectedProduct);
+            await _product.Update(_selectedProduct!);
         }
         Clear();
         _refresh();
@@ -51,17 +52,26 @@ public partial class ProductPage
 
     protected override async Task _refresh()
     {
-        MainDataGrid.ItemsSource = await _product.GetProducts();
-        _cbCategory.ItemsSource=await _category.GetCategory();
-        _cbUnit.ItemsSource=await _unit.GetUnits();
+            MainDataGrid.ItemsSource = await _product.GetProducts();
+            _cbCategory.ItemsSource = await _category.GetCategory();
+            _cbUnit.ItemsSource = await _unit.GetUnits();
+            TableLoaded();
     }
 
     private void DataGridCellClick(object sender, MouseButtonEventArgs e)
     {
-        _selectedProduct = (Product)MainDataGrid.SelectedItem;
+        _selectedProduct = (Product)MainDataGrid.Items.CurrentItem;
         _cbCategory.SelectedItem = _cbCategory.Items.Cast<Category>().Single(c => c.Id == _selectedProduct.CategoryId);
         _cbUnit.SelectedItem = _cbUnit.Items.Cast<Unit>().Single(c => c.Id == _selectedProduct.UnitId);
         Name.Text = _selectedProduct.Name;
         _id = _selectedProduct.Id;
+    }
+
+    private void TableLoaded(object sender=null, RoutedEventArgs e=null)
+    {
+        MainDataGrid.Columns[2].Visibility=Visibility.Hidden;
+        MainDataGrid.Columns[4].Visibility=Visibility.Hidden;
+        MainDataGrid.Columns[6].Visibility=Visibility.Hidden;
+        MainDataGrid.Columns[7].Visibility=Visibility.Hidden;
     }
 }

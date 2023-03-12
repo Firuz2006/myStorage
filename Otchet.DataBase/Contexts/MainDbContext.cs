@@ -8,6 +8,7 @@ public class MainDbContext:DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseMySQL("Server=localhost;Database=OtchetDB;Uid=root;Pwd=;");
+        // optionsBuilder.LogTo(s=>File.AppendAllText("log.txt",s));
         base.OnConfiguring(optionsBuilder);
     }
 
@@ -28,16 +29,15 @@ public class MainDbContext:DbContext
         base.OnModelCreating(modelBuilder);
     }
 
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Client> Clients { get; set; }
-    public DbSet<Firm> Firms { get; set; }
-    public DbSet<Invoice> Invoices { get; set; }
-    public DbSet<Product> Products { get; set; }
-    public DbSet<Rate> Rates { get; set; }
-    public DbSet<Storage> Storages { get; set; }
-    public DbSet<Unit> Units { get; set; }
-    public DbSet<Bank> Banks { get; set; }
-    public DbSet<CashIn> CashIns { get; set; }
-    public DbSet<CashOut> CashOuts { get; set; }
-    
+    public DbSet<Category> Categories { get; set; } = null!;
+    public DbSet<Client> Clients { get; set; } = null!;
+    public DbSet<Firm> Firms { get; set; } = null!;
+    public DbSet<Invoice> Invoices { get; set; } = null!;
+    public DbSet<Product> Products { get; set; } = null!;
+    public DbSet<Rate> Rates { get; set; } = null!;
+    public DbSet<Storage> Storages { get; set; } = null!;
+    public DbSet<Unit> Units { get; set; } = null!;
+    public DbSet<Bank> Banks { get; set; } = null!;
+    public DbSet<CashIn> CashIns { get; set; } = null!;
+    public DbSet<CashOut> CashOuts { get; set; } = null!;
 }

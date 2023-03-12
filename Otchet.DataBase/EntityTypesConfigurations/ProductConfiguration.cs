@@ -12,5 +12,6 @@ public class ProductConfiguration:IEntityTypeConfiguration<Product>
         builder.HasIndex(c => c.Id).IsUnique();
         builder.Property(c => c.Id).ValueGeneratedOnAdd();
         builder.Property(c => c.Name).HasMaxLength(100).IsRequired(false).IsUnicode(false);
+        
     }
 }

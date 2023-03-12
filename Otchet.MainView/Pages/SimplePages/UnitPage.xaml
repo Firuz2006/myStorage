@@ -35,7 +35,7 @@
         </Grid>
         
         <Grid Grid.Column="1">
-            <DataGrid Name="MainDataGrid">
+            <DataGrid Name="MainDataGrid" Loaded="TableLoaded">
             </DataGrid>
         </Grid>
     </Grid>

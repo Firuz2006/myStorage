@@ -1,0 +1,54 @@
+﻿<simplePages:Page x:Class="Otchet.MainView.Pages.BankPages.CashOutPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:simplePages="clr-namespace:Otchet.MainView.SimplePages"
+      mc:Ignorable="d"
+      Title="CashInPage">
+    <Grid HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">Касса</Label>
+        <ComboBox Grid.Column="0" Grid.Row="1" Name="CbBank" Grid.ColumnSpan="2"></ComboBox>
+        
+        <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">Вид оплаты</Label>
+    
+        <RadioButton Grid.Column="0" Grid.Row="3" Name="Income" GroupName="CashInType" Click="IncomeClick">Дополнительный расход</RadioButton>
+        <RadioButton Grid.Column="1" Grid.Row="3" Name="Client" GroupName="CashInType" Click="ClientClick">Клиент</RadioButton>
+        
+        <Label Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,20,0,0" Name="TypeLabel">Клиент заметки</Label>
+        <TextBox Grid.Column="0" Grid.Row="5" Name="Notes" Grid.ColumnSpan="2"></TextBox>
+        <ComboBox Grid.Column="0" Grid.Row="5" Name="Clients" Grid.ColumnSpan="2"></ComboBox>
+    
+        <Label Grid.Column="0" Grid.Row="7" Margin="0 , 20,0,0">Валюта</Label>
+        <Label Grid.Column="0" Grid.Row="8" Margin="0 , 20,0,0">1 доллар в сомони</Label>
+        <TextBox Grid.Column="1" Grid.Row="8" Name="OneDollarIs"></TextBox>
+        
+        <RadioButton Grid.Column="0" Grid.Row="9" Name="TjsRb" GroupName="Currency">Снять в сомони</RadioButton>
+        <RadioButton Grid.Column="1" Grid.Row="9" Name="UsdRb" GroupName="Currency">Снять в долларах</RadioButton>
+    
+        <Label Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" Margin="0,20,0,0">Сумма</Label>
+        <TextBox Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="2" Name="Money"></TextBox>
+        <Button Grid.Column="0" Grid.Row="12" Grid.ColumnSpan="2" Click="Submit" Margin="0,20,0,0">Снять</Button>
+
+    </Grid>
+</simplePages:Page>

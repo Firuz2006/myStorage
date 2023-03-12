@@ -18,17 +18,17 @@
                     <Button Margin="0,0,0,5" Click="ProductClick">Продукт</Button>
                     <Button Margin="0,0,0,5" Click="StorageClick">Склад</Button>
                     <Button Margin="0,0,0,5" Click="FirmClick">Фирма</Button>
-                    <Button Margin="0,0,0,5">Клиенты</Button>
-                    <Button Margin="0,0,0,5">Касса</Button>
-                    <Button Margin="0,0,0,5">Покупка</Button>
-                    <Button Margin="0,0,0,5">Продажа</Button>
-                    <Button Margin="0,0,0,5">Отчёт</Button>
-                    <Button Background="Brown" Margin="0,0,0,5">База данных</Button>
+                    <Button Margin="0,0,0,5" Click="ClientClick">Клиенты</Button>
+                    <Button Margin="0,0,0,5" Click="BankClick">Касса</Button>
+                    <Button Margin="0,0,0,5" Click="InvoiceClick">Покупка</Button>
+                    <Button Margin="0,0,0,5" Click="SaleClick">Продажа</Button>
+                    <Button Margin="0,0,0,5" Click="ReportClick">Отчёт</Button>
+                    <Button Background="Brown" Margin="0,0,0,5" Click="DataBaseClick">База данных</Button>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
         <Grid Grid.Column="2">
-            <Frame Name="MainFrame"></Frame>
+            <Frame Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
         </Grid>
     </Grid>
 </Window>

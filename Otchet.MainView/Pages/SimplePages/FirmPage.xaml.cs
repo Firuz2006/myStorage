@@ -5,11 +5,11 @@ using Otchet.Repository.SimpleEntitiesRepository;
 
 namespace Otchet.MainView.SimplePages;
 
-public partial class CategoryPage
+public partial class FirmPage
 {
-    private readonly CategoryRepository _category=new();
+    private readonly FirmRepository _firm=new();
     
-    public CategoryPage()
+    public FirmPage()
     {
         InitializeComponent();
         _refresh();
@@ -18,26 +18,36 @@ public partial class CategoryPage
     private void Clear(object? sender=null, RoutedEventArgs? e=null)
     {
         Name.Clear();
+        Address.Clear();
+        Phone.Clear();
     }
 
     private void Delete(object sender, RoutedEventArgs e)
     {
         if (_id==0)return;
-        _category.Delete(_id);
+        _firm.Delete(_id);
         Clear();
+        _refresh();
     }
 
     private void Save(object sender, RoutedEventArgs e)
     {
         if (_id==0)
         {
-            _category.Add(new Category{ Name = Name.Text });
+            _firm.Add(new Firm{ Name = Name.Text , Address = Address.Text,Phone = Phone.Text});
         }
         Clear();
+        _refresh();
     }
 
     protected override async Task _refresh()
     {
-        MainDataGrid.ItemsSource = await _category.GetCategory();
+        MainDataGrid.ItemsSource = await _firm.GetFirm();
+        TableLoaded(null!,null!);
+    }
+
+    private void TableLoaded(object sender, RoutedEventArgs e)
+    {
+        MainDataGrid.Columns[4].Visibility = Visibility.Hidden;
     }
 }
