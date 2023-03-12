@@ -1,23 +1,18 @@
 ﻿using Otchet.Core.Models;
-using Otchet.DataBase.Contexts;
 
 namespace Otchet.Repository.CashRepository;
 
-public class RateRepository:Repository<Rate>
+public class RateRepository
 {
-
-    public RateRepository(MainDbContext context):base(context)
-    {
-        
-    }
+    private readonly DataBase.Contexts.MainDbContext _context = new();
     public bool Add(Rate rate)
     {
-        _dbSet.Add(rate);
+        _context.Rates.Add(rate);
         return true;
     }
 
     public List<Rate> GetAll()
     {
-        return _dbSet.ToList();
+        return _context.Rates.ToList();
     }
 }

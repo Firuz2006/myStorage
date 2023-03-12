@@ -1,33 +1,27 @@
-﻿using Application.Common.Abstractions;
-using Otchet.Core.Models;
+﻿using Otchet.Core.Models;
 using Otchet.DataBase.Contexts;
 
 namespace Otchet.Repository.BusinessProcessRepository;
 
-public class InvoiceRepository:Repository<Invoice>,IInvoiceRepository
+public class InvoiceRepository
 {
-
-    public InvoiceRepository(MainDbContext context):base(context)
-    {
-        
-    }
+    private readonly MainDbContext _context = new();
+    
     public bool Buy(Invoice invoice)
     {
-        _dbSet.Add(invoice);
+        _context.Invoices.Add(invoice);
         return true;
     }
 
-    public override bool Update(Invoice invoice)
+    public bool Update(Invoice invoice)
     {
-        _dbSet.Update(invoice);
+        _context.Invoices.Update(invoice);
         return true;
     }
     
-    public override bool Delete(int id)
+    public bool Delete(Invoice invoice)
     {
-        var invoice =_dbSet.SingleOrDefault(c => c.Id == id);
-        if (invoice == null)return false;
-        _dbSet.Remove(invoice);
+        _context.Invoices.Remove(invoice);
         return true;
     }
     
