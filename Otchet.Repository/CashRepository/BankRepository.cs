@@ -71,4 +71,11 @@ public class BankRepository
         _context.SaveChanges();
         return true;
     }
+
+    public List<Bank> GetBanks() => _context.Banks.ToList();
+
+    public void Remove(int id)
+    {
+        
+    }
 }

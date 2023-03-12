@@ -19,7 +19,7 @@ public partial class CashInPage
     protected override async Task _refresh()
     {
         Clients.ItemsSource = await _clientRepository.GetClients();
-        CbBank.ItemsSource = await _bankRepository.GetBanks();
+        CbBank.ItemsSource =  _bankRepository.GetBanks();
     }
 
     private void Submit(object sender, RoutedEventArgs e)

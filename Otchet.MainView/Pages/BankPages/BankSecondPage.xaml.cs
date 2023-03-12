@@ -33,7 +33,7 @@ public partial class BankSecondPage
     {
         if (_id==0)
         {
-            await _bank.CreateBank(Name.Text);
+            _bank.CreateBank(Name.Text);
         }
         Clear();
         await _refresh();
@@ -41,7 +41,7 @@ public partial class BankSecondPage
 
     protected override async Task _refresh()
     {
-        MainDataGrid.ItemsSource = await _bank.GetBanks();
+        MainDataGrid.ItemsSource = _bank.GetBanks();
         TableLoaded(null!,null!);
     }
 

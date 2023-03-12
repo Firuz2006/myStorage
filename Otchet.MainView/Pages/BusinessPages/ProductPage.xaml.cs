@@ -44,7 +44,7 @@ public partial class ProductPage
         }
         else
         {
-            await _product.Update(_selectedProduct!);
+            _product.Update(_selectedProduct!);
         }
         Clear();
         _refresh();
